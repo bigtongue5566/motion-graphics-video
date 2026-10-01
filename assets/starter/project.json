@@ -1,0 +1,41 @@
+{
+  "name": "品牌影片",
+  "slug": "brand-film",
+  "duration": 90,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "brand": {
+    "name": "品牌名稱",
+    "tagline": "讓創新，持續發生",
+    "primary": "#087BBE",
+    "secondary": "#69D9DA",
+    "accent": "#B6E88C",
+    "ink": "#12324A",
+    "dark": "#071827",
+    "muted": "#587183",
+    "logo": null,
+    "logo_on_dark": null
+  },
+  "fonts": {"cn": null, "en": null},
+  "music": {
+    "bpm": 120,
+    "transpose": 0,
+    "soundfont": null,
+    "fluidsynth": null,
+    "soundfont_source": null,
+    "license": null,
+    "lufs": -16,
+    "true_peak": -2
+  },
+  "scenes": [
+    {"start": 0, "end": 8, "kind": "intro", "scheme": "light", "chapter": "IDEAS IN MOTION", "headline": "讓想法\n開始流動", "body": "以本案品牌標語開啟敘事", "footnote": "", "music_role": "intro"},
+    {"start": 8, "end": 16, "kind": "network", "scheme": "dark", "chapter": "CONNECTED CAPABILITIES", "headline": "連結，\n形成可能", "body": "放入經來源查證的品牌定位", "visual_label": "CONNECTED", "footnote": "", "music_role": "groove"},
+    {"start": 16, "end": 26, "kind": "flow", "scheme": "light", "chapter": "BUILT ON INNOVATION", "headline": "從核心技術\n持續前進", "body": "用圖形解釋本案的核心能力", "visual_label": "INNOVATION", "footnote": "", "music_role": "build"},
+    {"start": 26, "end": 46, "kind": "modules", "scheme": "dark", "chapter": "FROM PARTS TO A SYSTEM", "headline": "組成完整\n解決方案", "body": "模組組裝為概念示意\n請依本案技術修改圖形", "visual_label": "INTEGRATED", "footnote": "", "music_role": "drop"},
+    {"start": 46, "end": 56, "kind": "flow", "scheme": "light", "chapter": "MAKING IT WORK", "headline": "讓技術\n真正運作", "body": "將本案應用轉成清楚的動態流程", "visual_label": "APPLICATION", "footnote": "", "music_role": "break"},
+    {"start": 56, "end": 76, "kind": "network", "scheme": "dark", "chapter": "REACHING FURTHER", "headline": "把能力帶到\n更多場景", "body": "以經查證的應用與合作支持敘事", "visual_label": "IMPACT", "footnote": "", "music_role": "drop"},
+    {"start": 76, "end": 84, "kind": "metric", "scheme": "light", "chapter": "PROOF IN ACTION", "headline": "用成果\n支持承諾", "body": "加入本案可查證的成果與年份", "label": "成果與適用範圍", "footnote": "", "music_role": "break"},
+    {"start": 84, "end": 90, "kind": "outro", "scheme": "light", "chapter": "TOGETHER, FORWARD", "headline": "一起，向前", "body": "讓創新，持續發生", "footnote": "", "music_role": "outro"}
+  ]
+}
