@@ -6,6 +6,19 @@ official logos and colors, synchronized animation, and an original EDM soundtrac
 動態圖形影片製作 Skill：整合品牌研究、分鏡、動畫、EDM 配樂、影音同步與成品檢查。
 Skill instructions and production references are written in Traditional Chinese.
 
+## Original demo
+
+[![Form & Frequency — original motion study](https://bigtongue5566.github.io/assets/form-and-frequency.jpg)](https://bigtongue5566.github.io/?demo=form-and-frequency)
+
+**[Watch the 90-second film with sound →](https://bigtongue5566.github.io/?demo=form-and-frequency)** ·
+[Explore this Skill on Skill Showcase](https://bigtongue5566.github.io/?skill=motion-graphics-video)
+
+An original 1080p motion study with procedural geometry and a synchronized
+Melodic House soundtrack. The shared [production example](https://github.com/bigtongue5566/edm-music-production/tree/main/examples/form-and-frequency)
+includes its render source, MIDI, media checks, and [sources and licenses](https://github.com/bigtongue5566/edm-music-production/blob/main/examples/form-and-frequency/RIGHTS.md).
+
+## Starter preview
+
 ![Starter storyboard](docs/starter-storyboard.jpg)
 
 The storyboard shows the starter's vector scenes. Its example text illustrates the
