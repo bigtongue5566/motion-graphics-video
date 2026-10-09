@@ -17,6 +17,17 @@ An original 1080p motion study with procedural geometry and a synchronized
 Melodic House soundtrack. The shared [production example](https://github.com/bigtongue5566/edm-music-production/tree/main/examples/form-and-frequency)
 includes its render source, MIDI, media checks, and [sources and licenses](https://github.com/bigtongue5566/edm-music-production/blob/main/examples/form-and-frequency/RIGHTS.md).
 
+
+## More original Demos
+
+| Work | Music | Film | Standalone soundtrack | Reproducible source |
+| --- | --- | --- | --- | --- |
+| Digital Pulse / 數位脈動 | 60 sec · 128 BPM · Progressive House | [Watch](https://bigtongue5566.github.io/?demo=digital-pulse) | [Listen](https://bigtongue5566.github.io/?demo=digital-pulse-music) | [Project](https://github.com/bigtongue5566/edm-music-production/tree/main/examples/digital-pulse) |
+| Neon Drift / 霓虹漫遊 | 60 sec · 96 BPM · Synthwave / Electronic | [Watch](https://bigtongue5566.github.io/?demo=neon-drift) | [Listen](https://bigtongue5566.github.io/?demo=neon-drift-music) | [Project](https://github.com/bigtongue5566/edm-music-production/tree/main/examples/neon-drift) |
+
+Each work has a new musical arrangement and original procedural visuals,
+documented sources, MIDI, editable code, and checks of the finished media.
+
 ## Starter preview
 
 ![Starter storyboard](docs/starter-storyboard.jpg)
