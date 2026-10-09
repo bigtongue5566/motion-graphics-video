@@ -106,7 +106,7 @@ class Showcase(Score):
         self.automation = []
         self.harmony = []
         chords = cfg["music"]["voiced_chords"]
-        span_bars = 4 if self.identity == "dub-techno" else 2
+        span_bars = 4 if self.identity == "minimal-piano-house" else 2
         cycle = 0
         for si, section in enumerate(cfg["sections"]):
             a = section["start"]
@@ -125,10 +125,10 @@ class Showcase(Score):
                            "clap": ins.clap(), "hat": ins.hat(), "open": ins.hat(True), "rim": rim()}
         if self.identity == "future-bass":
             self.percussion["kick"] = ins.kick()
-        if self.identity == "dub-techno":
+        if self.identity == "minimal-piano-house":
             # Darker, longer body for the steady pulse; hats are also less bright.
             self.percussion["kick"] = ins.filt(ins.kick(), 1400, "lowpass")
-            self.percussion["hat"] = ins.filt(self.percussion["hat"], 10000, "lowpass")
+            self.percussion["hat"] = ins.filt(self.percussion["hat"], 6500, "lowpass")
 
     def drum(self, a, off, kind, gain, boundary, pan=0, velocity=80):
         time = a + off * self.beat
@@ -301,67 +301,59 @@ class Showcase(Score):
             self.automation.append({"time": t, "duration": end - t, "groove": "two-step",
                                     "odd_sixteenth_delay_beats": .09, "stem": "drums"})
 
-    def dub(self, chord):
-        a, b, role = chord["start"], chord["end"], chord["role"]
-        active = role in ("groove", "build", "drop")
-        if role in ("intro", "break", "outro"):
-            self.pad(chord, .067, octave=0)
-        for local in range(math.ceil((b - a) / self.bar)):
-            t = a + local * self.bar
-            end = min(t + self.bar, b)
-            bar = round(t / self.bar)
+    def piano_house(self, chord):
+        a,b,role=chord['start'],chord['end'],chord['role']
+        active=role in ('groove','build','drop')
+        if role in ('intro','break','outro'):
+            self.pad(chord,.037,octave=0)
+        for local in range(math.ceil((b-a)/self.bar)):
+            t=a+local*self.bar; end=min(t+self.bar,b); bar=round(t/self.bar)
             if active:
-                for off in [0, 1, 2, 3]:
-                    self.drum(t, off, "kick", .66 if role == "drop" else .53, end, velocity=93)
-                for off in [.5, 1.5, 2.5, 3.5]:
-                    self.drum(t, off, "hat", .42 if bar % 4 != 3 else .56, end, .14, 58)
-                for off in [1, 3]:
-                    self.drum(t, off, "rim", .55, end, -.15, 67)
-                if bar % 4 == 3:
-                    for off in [2.75, 3.75]:
-                        self.drum(t, off, "hat", .31, end, -.22, 46)
-                for off, beats in [(.5, .55), (2.5, .60)]:
-                    self.pitched("bass", chord, t + off * self.beat, beats * self.beat,
-                                 chord["root"], .40, sub)
-            elif bar % 2 == 1 and role != "outro":
-                self.drum(t, 1.5, "hat", .21, end, .15, 40)
-            if bar % 2 == 0 or role == "drop":
-                cutoff = round((900 + 1150 * (.5 + .5 * math.sin(t * .09 - 1))) / 50) * 50
-                if role == "outro":
-                    cutoff = 750
-                hits = [.5, 2.75] if role == "drop" and bar % 4 == 2 else [.5]
-                for off in hits:
-                    start = t + off * self.beat
-                    # Three dotted-eighth echoes; each gets darker and quieter.
-                    for echo, delay in enumerate([0, .75, 1.5, 2.25]):
-                        for pitch in chord["voices"]:
-                            self.pitched("chords", chord, start + delay * self.beat,
-                                         .8 * self.beat, pitch + 12, .31 * .57 ** echo,
-                                         dub_voice, cutoff=max(450, cutoff - echo * 220))
-                    self.automation.append({"time": start, "stem": "chords", "filter_hz": cutoff,
-                                            "echo_delays_beats": [0, .75, 1.5, 2.25], "echo_gain_ratio": .57,
-                                            "echo_filter_loss_hz": 220, "echo_boundary": b})
+                for off in [0,1,2,3]:
+                    self.drum(t,off,'kick',.66 if role=='drop' else .53,end,velocity=93)
+                for off in [.5,1.5,2.5,3.5]:
+                    self.drum(t,off,'hat',.26,end,.14,45)
+                for off in [1,3]:
+                    self.drum(t,off,'rim',.40,end,-.15,56)
+                for off,beats in [(.5,.55),(2.5,.60)]:
+                    self.pitched('bass',chord,t+off*self.beat,beats*self.beat,
+                                 chord['root'],.40,sub)
+            # Clear primary attack on the bar. Original rests stay rests.
+            if bar%2==0 or role=='drop':
+                hits=[(0,64)]
+                if role=='drop' and bar%4==2:
+                    hits.append((2,46))
+                for off,velocity in hits:
+                    onset=t+off*self.beat
+                    for pitch in chord['voices']:
+                        self.note('keys',onset,min(.75*self.beat,b-onset-.012),
+                                  pitch,.10,velocity=velocity,boundary=b)
+                    self.automation.append({'time':onset,'stem':'keys','sampled_program':0,
+                        'velocity':velocity,'role':'primary' if off==0 else 'quiet answer',
+                        'echo_delays_beats':[],'register':'F3–D4'})
 
     def arrange(self):
         method = {"future-bass": self.future, "drum-and-bass": self.dnb,
-                  "uk-garage": self.garage, "dub-techno": self.dub}[self.identity]
+                  "uk-garage": self.garage, "minimal-piano-house": self.piano_house}[self.identity]
         for chord in self.harmony:
             method(chord)
         for i, section in enumerate(self.cfg["sections"]):
             start = section["start"]
-            if i and section["role"] == "drop" and self.identity != "dub-techno":
+            if i and section["role"] == "drop" and self.identity != "minimal-piano-house":
                 self.add("effects", start, ins.crash(), .30)
                 if self.identity == "future-bass":
                     self.add("effects", start - 1.4, ins.swell(1.4), .75)
 
     def mix(self):
-        for name, cutoff in [("keys", 170), ("pad", 250 if self.identity != "dub-techno" else 170),
+        for name, cutoff in [("keys", 170), ("pad", 250 if self.identity != "minimal-piano-house" else 170),
                              ("chords", 125 if self.identity == "drum-and-bass" else 210),
                              ("lead", 400), ("arp", 500), ("effects", 850)]:
             self.stems[name] = ins.filt(self.stems[name], cutoff)
+        self.stems["keys"] = ins.filt(self.stems["keys"], 3200, "lowpass")
+        self.stems["pad"] = ins.filt(self.stems["pad"], 950, "lowpass")
         self.stems["bass"] = ins.filt(self.stems["bass"], 180 if self.identity == "drum-and-bass" else 240, "lowpass")
         depth, release = {"future-bass": (.64, .22), "drum-and-bass": (.58, .13),
-                          "uk-garage": (.52, .14), "dub-techno": (.39, .23)}[self.identity]
+                          "uk-garage": (.52, .14), "minimal-piano-house": (.39, .23)}[self.identity]
         duck = np.ones(self.n, np.float32)
         dt = np.arange(round(release * self.sr)) / self.sr
         env = 1 - depth * np.exp(-dt * (5 / release))
@@ -388,6 +380,8 @@ class Showcase(Score):
         (self.root / "work/automation.json").write_text(json.dumps(self.automation, indent=2), encoding="utf-8")
 
     def audit(self):
+        from harmonic_comfort import check_profile
+        consonance = check_profile(self.events, self.cfg["music"])
         conflicts = []
         for event in self.events:
             if event["stem"] == "drums":
@@ -402,8 +396,11 @@ class Showcase(Score):
         metadata = {"duration_seconds": self.duration, "bpm": self.bpm, "key": music["key"],
                     "style": music["style"], "identity": self.identity, "sound_design": music["sound_design"],
                     "original_composition": True, "instrument_source": self.instrument_source,
-                    "note_events": len(self.events), "unexpected_chord_conflicts": 0,
-                    "harmonic_audit": "Explicit root and seventh/ninth chord pitch classes; sounding echoes clipped at harmonic boundaries.",
+                    "soundfont_source": music.get("soundfont_source"),
+                    "soundfont_sha256": hashlib.sha256(self.sf.read_bytes()).hexdigest(),
+                    "soundfont_license_file": "GeneralUser-GS-LICENSE.txt",
+                    "consonance_check": consonance, "note_events": len(self.events), "unexpected_chord_conflicts": 0,
+                    "harmonic_audit": "Root/triad MIDI gates audited; sampled release tails require decoded audio review.",
                     "limits": "Symbolic harmony and signal measurements do not establish listening quality.",
                     "harmony": [{k: v for k, v in c.items() if k != "pcs"} for c in self.harmony]}
         (self.root / "work/note-events.json").write_text(json.dumps(self.events, indent=2), encoding="utf-8")
@@ -418,6 +415,8 @@ if __name__ == "__main__":
     root, cfg = load(args.project)
     score = Showcase(root, cfg)
     score.arrange()
+    score.render_sampled_keys()
+    score.stems["keys"] *= .42
     score.audit()
     score.mix()
     score.write_midi(root / "outputs" / (cfg["slug"] + "-music.mid"))

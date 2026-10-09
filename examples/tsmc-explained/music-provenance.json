@@ -1,11 +1,12 @@
 {
-  "composition": "original Dub Techno Demo arrangement",
+  "composition": "original electronic starter composition",
+  "style": "Minimal Piano House",
   "bpm": 124.0,
   "key": "D minor",
-  "instrument_source": "original oscillators and generated percussion noise; no sampled recordings",
-  "soundfont_source": null,
-  "soundfont_sha256": null,
-  "soundfont_license_file": null,
+  "instrument_source": "FluidSynth piano using GeneralUser-GS.sf2; original electronic synthesis",
+  "soundfont_source": "https://github.com/mrbumpy409/GeneralUser-GS",
+  "soundfont_sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+  "soundfont_license_file": "GeneralUser-GS-LICENSE.txt",
   "sections": [
     {
       "start": 0.0,

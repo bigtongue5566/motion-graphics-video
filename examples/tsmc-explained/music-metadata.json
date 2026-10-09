@@ -2,25 +2,27 @@
   "duration_seconds": 90.0,
   "bpm": 124.0,
   "key": "D minor",
-  "style": "Dub Techno",
-  "identity": "dub-techno",
-  "sound_design": "Restrained four-on-the-floor pulse; dark chord stabs with three progressively filtered dotted-eighth echoes; slowly moving cutoff; sparse rim and hats; no foreground melody.",
+  "style": "Minimal Piano House",
+  "identity": "minimal-piano-house",
+  "sound_design": "Sparse 124 BPM four-on-the-floor; soft sampled piano in F3–F4, single primary hits and quiet half-bar answers; dry offbeat sub; no detuned high chord stabs or dotted echoes.",
   "original_composition": true,
-  "instrument_source": "original oscillators and generated percussion noise; no sampled recordings",
-  "note_events": 935,
+  "instrument_source": "FluidSynth piano using GeneralUser-GS.sf2; original electronic synthesis",
+  "soundfont_source": "https://github.com/mrbumpy409/GeneralUser-GS",
+  "soundfont_sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+  "soundfont_license_file": "GeneralUser-GS-LICENSE.txt",
+  "note_events": 477,
   "unexpected_chord_conflicts": 0,
-  "harmonic_audit": "Explicit root and seventh/ninth chord pitch classes; sounding echoes clipped at harmonic boundaries.",
+  "harmonic_audit": "Root/triad MIDI gates audited; sampled release tails require decoded audio review.",
   "limits": "Symbolic harmony and signal measurements do not establish listening quality.",
   "harmony": [
     {
       "start": 0.0,
       "end": 7.741935483870968,
       "role": "intro",
-      "name": "Dm7",
+      "name": "Dm",
       "voices": [
         53,
         57,
-        60,
         62
       ],
       "root": 38,
@@ -30,12 +32,11 @@
       "start": 7.741935483870968,
       "end": 15.483870967741936,
       "role": "groove",
-      "name": "Gm9",
+      "name": "Gm",
       "voices": [
+        55,
         58,
-        62,
-        65,
-        69
+        62
       ],
       "root": 43,
       "section": 1
@@ -44,11 +45,10 @@
       "start": 15.483870967741936,
       "end": 19.35483870967742,
       "role": "groove",
-      "name": "Dm7",
+      "name": "Dm",
       "voices": [
         53,
         57,
-        60,
         62
       ],
       "root": 38,
@@ -58,12 +58,11 @@
       "start": 19.35483870967742,
       "end": 27.096774193548388,
       "role": "build",
-      "name": "Gm9",
+      "name": "Gm",
       "voices": [
+        55,
         58,
-        62,
-        65,
-        69
+        62
       ],
       "root": 43,
       "section": 2
@@ -72,11 +71,10 @@
       "start": 27.096774193548388,
       "end": 30.967741935483872,
       "role": "build",
-      "name": "Dm7",
+      "name": "Dm",
       "voices": [
         53,
         57,
-        60,
         62
       ],
       "root": 38,
@@ -86,12 +84,11 @@
       "start": 30.967741935483872,
       "end": 38.70967741935484,
       "role": "drop",
-      "name": "Gm9",
+      "name": "Gm",
       "voices": [
+        55,
         58,
-        62,
-        65,
-        69
+        62
       ],
       "root": 43,
       "section": 3
@@ -100,11 +97,10 @@
       "start": 38.70967741935484,
       "end": 42.58064516129032,
       "role": "drop",
-      "name": "Dm7",
+      "name": "Dm",
       "voices": [
         53,
         57,
-        60,
         62
       ],
       "root": 38,
@@ -114,12 +110,11 @@
       "start": 42.58064516129032,
       "end": 50.32258064516129,
       "role": "break",
-      "name": "Gm9",
+      "name": "Gm",
       "voices": [
+        55,
         58,
-        62,
-        65,
-        69
+        62
       ],
       "root": 43,
       "section": 4
@@ -128,11 +123,10 @@
       "start": 50.32258064516129,
       "end": 56.12903225806452,
       "role": "break",
-      "name": "Dm7",
+      "name": "Dm",
       "voices": [
         53,
         57,
-        60,
         62
       ],
       "root": 38,
@@ -142,12 +136,11 @@
       "start": 56.12903225806452,
       "end": 63.87096774193549,
       "role": "drop",
-      "name": "Gm9",
+      "name": "Gm",
       "voices": [
+        55,
         58,
-        62,
-        65,
-        69
+        62
       ],
       "root": 43,
       "section": 5
@@ -156,11 +149,10 @@
       "start": 63.87096774193549,
       "end": 69.6774193548387,
       "role": "drop",
-      "name": "Dm7",
+      "name": "Dm",
       "voices": [
         53,
         57,
-        60,
         62
       ],
       "root": 38,
@@ -170,12 +162,11 @@
       "start": 69.6774193548387,
       "end": 77.41935483870967,
       "role": "groove",
-      "name": "Gm9",
+      "name": "Gm",
       "voices": [
+        55,
         58,
-        62,
-        65,
-        69
+        62
       ],
       "root": 43,
       "section": 6
@@ -184,11 +175,10 @@
       "start": 77.41935483870967,
       "end": 79.35483870967742,
       "role": "groove",
-      "name": "Dm7",
+      "name": "Dm",
       "voices": [
         53,
         57,
-        60,
         62
       ],
       "root": 38,
@@ -198,11 +188,10 @@
       "start": 79.35483870967742,
       "end": 87.09677419354838,
       "role": "outro",
-      "name": "Dm7",
+      "name": "Dm",
       "voices": [
         53,
         57,
-        60,
         62
       ],
       "root": 38,
@@ -212,15 +201,20 @@
       "start": 87.09677419354838,
       "end": 90.0,
       "role": "outro",
-      "name": "Dm7",
+      "name": "Dm",
       "voices": [
         53,
         57,
-        60,
         62
       ],
       "root": 38,
       "section": 7
     }
-  ]
+  ],
+  "consonance_check": {
+    "profile": "consonant",
+    "tracked_overlap_conflicts": [],
+    "tension_intent": null,
+    "limits": "Symbolic intervals do not certify comfortable timbre. Sampled release and FX tails still require audio review."
+  }
 }

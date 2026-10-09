@@ -10,16 +10,16 @@
   "audio_channels": 2,
   "audio_decoded_seconds": 90.00533,
   "integrated_lufs": -16.0,
-  "true_peak_dbtp": -1.9,
+  "true_peak_dbtp": -2.0,
   "full_decode_errors": 0,
   "sampled_encoded_frames": 13,
   "geometry_motion_difference": {
-    "intro_motion": 3.056,
-    "drop_motion": 6.297
+    "intro_motion": 3.032,
+    "drop_motion": 6.71
   },
   "music_bpm": 124,
   "music_key": "D minor",
-  "mp4_bytes": 9675650,
-  "mp4_sha256": "96683b141d7834fce201c10c1a6ae2d6b4990922ae8060c175e18514eebd31d0",
+  "mp4_bytes": 9503306,
+  "mp4_sha256": "1bab7ca35a29afcbc2bd320dc9e69448182d141aded9de2e8222e5a58a0d6446",
   "limits": "Objective verification does not certify subjective listening quality."
 }

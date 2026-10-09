@@ -12,39 +12,44 @@
       "VII"
     ],
     "seed": 26101044,
-    "style": "Dub Techno",
+    "style": "Minimal Piano House",
     "arrangement": "silicon",
     "lufs": -16.0,
     "true_peak": -2.0,
     "export_stems": false,
-    "soundfont": null,
+    "soundfont": "work/assets/GeneralUser-GS.sf2",
     "fluidsynth": null,
-    "soundfont_source": null,
-    "license": null,
-    "identity": "dub-techno",
+    "soundfont_source": "https://github.com/mrbumpy409/GeneralUser-GS",
+    "license": "work/assets/GeneralUser-GS-LICENSE.txt",
+    "identity": "minimal-piano-house",
     "voiced_chords": [
       {
-        "name": "Dm7",
+        "name": "Dm",
         "voices": [
           53,
           57,
-          60,
           62
         ],
         "root": 38
       },
       {
-        "name": "Gm9",
+        "name": "Gm",
         "voices": [
+          55,
           58,
-          62,
-          65,
-          69
+          62
         ],
         "root": 43
       }
     ],
-    "sound_design": "Restrained four-on-the-floor pulse; dark chord stabs with three progressively filtered dotted-eighth echoes; slowly moving cutoff; sparse rim and hats; no foreground melody."
+    "sound_design": "Sparse 124 BPM four-on-the-floor; soft sampled piano in F3–F4, single primary hits and quiet half-bar answers; dry offbeat sub; no detuned high chord stabs or dotted echoes.",
+    "review": {
+      "scope": "0:54–1:14 picture comparison, focusing on 1:00–1:10",
+      "user_feedback": "音色較舒服，拍點也清楚",
+      "date": "2026-10-10",
+      "limit": "The full track has technical QC; user listening feedback covers the excerpt."
+    },
+    "harmonic_profile": "consonant"
   },
   "sections": [
     {
@@ -206,6 +211,26 @@
           "S4"
         ]
       }
+    ],
+    "cues": [
+      {
+        "id": "packaging-entry",
+        "scene": "packaging",
+        "action": "chapter entrance",
+        "start": 56.12903225806452,
+        "time": 56.12903225806452,
+        "beat": 116,
+        "audio": "kick and piano primary"
+      },
+      {
+        "id": "packaging-assembled",
+        "scene": "packaging",
+        "action": "chip layers reach assembled position",
+        "start": 56.12903225806452,
+        "time": 60.0,
+        "beat": 124,
+        "audio": "kick and piano primary"
+      }
     ]
   },
   "editorial": {
@@ -267,5 +292,5 @@
       }
     ]
   },
-  "revision": "2026-10-10-multi-style"
+  "revision": "2026-10-10-soft-piano-sync"
 }

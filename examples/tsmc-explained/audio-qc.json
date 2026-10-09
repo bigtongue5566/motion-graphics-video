@@ -10,22 +10,69 @@
     "samples": 4320000,
     "integrated_lufs": -16.0,
     "true_peak_dbfs": -2.0,
-    "loudness_range_lu": 5.3
+    "loudness_range_lu": 8.2
   },
   "aac": {
     "file": "tsmc-explained.m4a",
     "decoded_seconds": 90.00533,
     "integrated_lufs": -16.0,
-    "true_peak_dbfs": -1.9,
-    "loudness_range_lu": 5.3
+    "true_peak_dbfs": -2.0,
+    "loudness_range_lu": 8.2
+  },
+  "micro_dynamics": {
+    "window_ms": 10,
+    "deep_trough_threshold_db_below_p95": -33.98,
+    "regions": [
+      {
+        "start": 7.741935483870968,
+        "end": 19.35483870967742,
+        "role": "groove",
+        "p10_to_p95_db": -49.12,
+        "longest_deep_trough_ms": 120,
+        "deep_trough_fraction": 0.11738
+      },
+      {
+        "start": 19.35483870967742,
+        "end": 30.967741935483872,
+        "role": "build",
+        "p10_to_p95_db": -48.76,
+        "longest_deep_trough_ms": 120,
+        "deep_trough_fraction": 0.11649
+      },
+      {
+        "start": 30.967741935483872,
+        "end": 42.58064516129032,
+        "role": "drop",
+        "p10_to_p95_db": -46.21,
+        "longest_deep_trough_ms": 120,
+        "deep_trough_fraction": 0.11728
+      },
+      {
+        "start": 56.12903225806452,
+        "end": 69.6774193548387,
+        "role": "drop",
+        "p10_to_p95_db": -50.8,
+        "longest_deep_trough_ms": 120,
+        "deep_trough_fraction": 0.11832
+      },
+      {
+        "start": 69.6774193548387,
+        "end": 79.35483870967742,
+        "role": "groove",
+        "p10_to_p95_db": -45.4,
+        "longest_deep_trough_ms": 120,
+        "deep_trough_fraction": 0.11484
+      }
+    ],
+    "interpretation": "Review with arrangement intent. These values do not certify listening quality."
   },
   "full_decode_errors": 0,
-  "mono_fold_down_db": -0.388,
-  "ending_rms_last_50ms": 0.0,
+  "mono_fold_down_db": -0.205,
+  "ending_rms_last_50ms": 2.7e-05,
   "unexpected_near_silent_seconds": [],
   "bpm": 124.0,
   "key": "D minor",
   "unexpected_chord_conflicts": 0,
-  "aac_sha256": "14d744fbd81a10d2cc9a154874370d7b3a7b7020e5458a3e565354107f29c949",
+  "aac_sha256": "0d68ff4295736628d344c62598b10717d6d9988a4c154bb9db03ac7af41eeca5",
   "limits": "Objective QC does not certify listening quality."
 }

@@ -1,0 +1,79 @@
+{
+  "before": {
+    "decoded_seconds": 20.010666666666665,
+    "full_decode_errors": 0,
+    "rms_2_5khz_relative_to_full_band_db": -42.57518945240375,
+    "pitched_notes": [
+      65,
+      69,
+      70,
+      72,
+      74,
+      77,
+      81
+    ],
+    "primary_onsets_seconds": [
+      60.12097,
+      60.24194,
+      60.48387,
+      60.60484,
+      60.96774,
+      61.33065,
+      62.17742,
+      62.54032,
+      62.90323,
+      63.26613,
+      64.1129,
+      64.47581,
+      64.83871,
+      65.20161,
+      66.04839,
+      66.41129,
+      66.77419,
+      67.1371,
+      67.5,
+      67.8629,
+      67.98387,
+      68.22581,
+      68.34677,
+      68.70968,
+      69.07258,
+      69.91935
+    ]
+  },
+  "after": {
+    "decoded_seconds": 20.010666666666665,
+    "full_decode_errors": 0,
+    "rms_2_5khz_relative_to_full_band_db": -47.30324009580226,
+    "pitched_notes": [
+      53,
+      55,
+      57,
+      58,
+      62
+    ],
+    "primary_onsets_seconds": [
+      60.0,
+      61.93548,
+      63.87097,
+      65.80645,
+      66.77419,
+      67.74194,
+      69.67742
+    ]
+  },
+  "picture_cue": {
+    "action": "chip layers reach assembled position",
+    "original_film_seconds": 60.0,
+    "review_frame": 180,
+    "musical_onset_seconds": 60.0,
+    "scheduled_difference_ms": 0.0,
+    "rendered_frame_samples": [
+      "review-59.jpg",
+      "review-60.jpg",
+      "review-61.jpg"
+    ],
+    "limit": "Scheduled cue and rendered assembly frames checked; encoded sound attack also requires listening review."
+  },
+  "scope": "Local review of 1:00–1:10 with context 0:54–1:14. Metrics are diagnostic, not perceived harshness scores."
+}

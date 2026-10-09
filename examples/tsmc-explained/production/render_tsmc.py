@@ -7,8 +7,9 @@ import sys
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument("mode",choices=["preview","render"])
 parser.add_argument("--project",type=Path,required=True)
-args=parser.parse_args()
-sys.path.insert(0,str(args.project.resolve()/"work"))
+if __name__ == "__main__":
+    args=parser.parse_args()
+    sys.path.insert(0,str(args.project.resolve()/"work"))
 import numpy as np
 from PIL import Image
 import skia
@@ -118,7 +119,8 @@ class SiliconFilm(Film):
 
     def packaging(self,c,t,u,level,fg,accent):
         cx,cy=1400,655
-        spread=1-ease(u/3)
+        cue=next(x for x in self.cfg["video"]["cues"] if x["id"]=="packaging-assembled")
+        spread=1-ease((t-cue["start"])/(cue["time"]-cue["start"]))
         self.slab(c,cx,cy+115,344,105,22,fg,accent)
         self.slab(c,cx,cy-5-spread*72,316,94,18,fg,accent)
         y=cy-144-spread*155
@@ -264,5 +266,6 @@ class SiliconFilm(Film):
         print("TSMC_STORYBOARD_READY",flush=True)
 
 
-film=SiliconFilm(args.project)
-getattr(film,args.mode)()
+if __name__ == "__main__":
+    film=SiliconFilm(args.project)
+    getattr(film,args.mode)()

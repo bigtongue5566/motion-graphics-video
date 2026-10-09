@@ -258,6 +258,8 @@ class Score:
         wavfile.write(self.root / "work" / "score-mix.wav", self.sr, audio.astype(np.float32))
 
     def audit(self):
+        from harmonic_comfort import check_profile
+        consonance = check_profile(self.events, self.cfg["music"])
         conflicts = []
         for event in self.events:
             if event["stem"] == "drums":
@@ -274,6 +276,7 @@ class Score:
                     "soundfont_sha256": hashlib.sha256(self.sf.read_bytes()).hexdigest() if self.sf else None,
                     "soundfont_license_file": Path(self.cfg["music"]["license"]).name if self.cfg["music"].get("license") else None,
                     "note_events": len(self.events), "unexpected_chord_conflicts": len(conflicts),
+                    "consonance_check": consonance,
                     "limits": "Symbolic note and signal checks do not establish listening quality.",
                     "harmony": [{k: v for k, v in c.items() if k != "pcs"} for c in self.harmony]}
         (self.root / "work" / "music-metadata.json").write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8")

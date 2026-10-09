@@ -44,7 +44,7 @@ class Master:
                   "-c:a", "pcm_s24le", "-t", str(self.cfg["duration"]), str(self.wav)], "mastering.log")
         self.run(["-y", "-i", str(self.wav), "-c:a", "aac", "-b:a", "256k", "-ar", "48000", "-ac", "2",
                   "-movflags", "+faststart", "-metadata", "title=" + self.cfg["name"],
-                  "-metadata", "comment=Original electronic Demo composition; see music provenance.", str(self.aac)], "aac-encoding.log")
+                  "-metadata", "comment=Original electronic composition; see music provenance.", str(self.aac)], "aac-encoding.log")
         print("AUDIO_MASTERED", flush=True)
 
     def measure(self, path):
@@ -100,17 +100,19 @@ class Master:
         tail_rms = float(np.sqrt(np.mean(sound[-min(len(sound), 2400):] ** 2)))
         if tail_rms > .01:
             raise ValueError("Inspect ending fade")
+        from continuity import micro_dynamics
+        micro = micro_dynamics(sound, 48000, self.cfg["sections"])
         music = json.loads((self.work / "music-metadata.json").read_text(encoding="utf-8"))
         metrics = {"name": self.cfg["name"], "requested_seconds": self.cfg["duration"],
                    "wav": {"file": self.wav.name, "duration_seconds": props["samples"] / 48000, **props, **wav_levels},
                    "aac": {"file": self.aac.name, "decoded_seconds": round(seconds, 5), **aac_levels},
-                   "full_decode_errors": 0, "mono_fold_down_db": round(float(mono_loss), 3),
+                   "micro_dynamics": micro, "full_decode_errors": 0, "mono_fold_down_db": round(float(mono_loss), 3),
                    "ending_rms_last_50ms": round(tail_rms, 6), "unexpected_near_silent_seconds": near_silent,
                    "bpm": music["bpm"], "key": music["key"], "unexpected_chord_conflicts": music["unexpected_chord_conflicts"],
                    "aac_sha256": hashlib.sha256(self.aac.read_bytes()).hexdigest(),
                    "limits": "Objective QC does not certify listening quality."}
         (self.out / f"{self.cfg['slug']}-qc.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2), encoding="utf-8")
-        provenance = {"composition": "original " + self.cfg["music"]["style"] + " Demo arrangement", "bpm": music["bpm"], "key": music["key"],
+        provenance = {"composition": "original electronic starter composition", "style": music.get("style", "melodic-house"), "bpm": music["bpm"], "key": music["key"],
                       "instrument_source": music["instrument_source"], "soundfont_source": music.get("soundfont_source"),
                       "soundfont_sha256": music.get("soundfont_sha256"), "soundfont_license_file": music.get("soundfont_license_file"),
                       "sections": self.cfg["sections"],

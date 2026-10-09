@@ -1,479 +1,309 @@
 [
   {
-    "time": 0.24193548387096775,
-    "stem": "chords",
-    "filter_hz": 1000,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 7.741935483870968
+    "time": 0.0,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 4.112903225806452,
-    "stem": "chords",
-    "filter_hz": 1150,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 7.741935483870968
+    "time": 3.870967741935484,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 7.983870967741936,
-    "stem": "chords",
-    "filter_hz": 1300,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 15.483870967741936
+    "time": 7.741935483870968,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 11.85483870967742,
-    "stem": "chords",
-    "filter_hz": 1500,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 15.483870967741936
+    "time": 11.612903225806452,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 15.725806451612904,
-    "stem": "chords",
-    "filter_hz": 1700,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 19.35483870967742
+    "time": 15.483870967741936,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 19.596774193548388,
-    "stem": "chords",
-    "filter_hz": 1850,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 27.096774193548388
+    "time": 19.35483870967742,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 23.467741935483872,
-    "stem": "chords",
-    "filter_hz": 2000,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 27.096774193548388
+    "time": 23.225806451612904,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 27.338709677419356,
-    "stem": "chords",
-    "filter_hz": 2050,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 30.967741935483872
+    "time": 27.096774193548388,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 31.20967741935484,
-    "stem": "chords",
-    "filter_hz": 2050,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 38.70967741935484
+    "time": 30.967741935483872,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 33.145161290322584,
-    "stem": "chords",
-    "filter_hz": 2000,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 38.70967741935484
+    "time": 32.903225806451616,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 35.08064516129033,
-    "stem": "chords",
-    "filter_hz": 1950,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 38.70967741935484
+    "time": 34.83870967741936,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 36.16935483870968,
-    "stem": "chords",
-    "filter_hz": 1950,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 38.70967741935484
+    "time": 35.80645161290323,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 46,
+    "role": "quiet answer",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 37.016129032258064,
-    "stem": "chords",
-    "filter_hz": 1900,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 38.70967741935484
+    "time": 36.774193548387096,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 38.95161290322581,
-    "stem": "chords",
-    "filter_hz": 1850,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 42.58064516129032
+    "time": 38.70967741935484,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 40.88709677419355,
-    "stem": "chords",
-    "filter_hz": 1750,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 42.58064516129032
+    "time": 40.645161290322584,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 42.82258064516129,
-    "stem": "chords",
-    "filter_hz": 1650,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 50.32258064516129
+    "time": 42.58064516129032,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 46.693548387096776,
-    "stem": "chords",
-    "filter_hz": 1450,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 50.32258064516129
+    "time": 46.45161290322581,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 50.564516129032256,
-    "stem": "chords",
-    "filter_hz": 1250,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 56.12903225806452
+    "time": 50.32258064516129,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 54.43548387096774,
-    "stem": "chords",
-    "filter_hz": 1100,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 56.12903225806452
+    "time": 54.19354838709677,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 56.37096774193549,
-    "stem": "chords",
-    "filter_hz": 1000,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 63.87096774193549
+    "time": 56.12903225806452,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 58.30645161290323,
-    "stem": "chords",
-    "filter_hz": 950,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 63.87096774193549
+    "time": 58.06451612903226,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 59.395161290322584,
-    "stem": "chords",
-    "filter_hz": 950,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 63.87096774193549
+    "time": 59.032258064516135,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 46,
+    "role": "quiet answer",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 60.24193548387097,
-    "stem": "chords",
-    "filter_hz": 950,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 63.87096774193549
+    "time": 60.0,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 62.17741935483871,
-    "stem": "chords",
-    "filter_hz": 900,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 63.87096774193549
+    "time": 61.935483870967744,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 64.11290322580645,
-    "stem": "chords",
-    "filter_hz": 900,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 69.6774193548387
+    "time": 63.87096774193549,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 66.04838709677419,
-    "stem": "chords",
-    "filter_hz": 900,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 69.6774193548387
+    "time": 65.80645161290323,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 67.13709677419355,
-    "stem": "chords",
-    "filter_hz": 900,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 69.6774193548387
+    "time": 66.7741935483871,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 46,
+    "role": "quiet answer",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 67.98387096774194,
-    "stem": "chords",
-    "filter_hz": 950,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 69.6774193548387
+    "time": 67.74193548387098,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 69.91935483870967,
-    "stem": "chords",
-    "filter_hz": 1000,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 77.41935483870967
+    "time": 69.6774193548387,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 73.79032258064515,
-    "stem": "chords",
-    "filter_hz": 1100,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 77.41935483870967
+    "time": 73.54838709677419,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 77.66129032258063,
-    "stem": "chords",
-    "filter_hz": 1300,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 79.35483870967742
+    "time": 77.41935483870967,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 81.53225806451613,
-    "stem": "chords",
-    "filter_hz": 750,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 87.09677419354838
+    "time": 81.29032258064517,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 85.40322580645162,
-    "stem": "chords",
-    "filter_hz": 750,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 87.09677419354838
+    "time": 85.16129032258065,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
-    "time": 89.27419354838709,
-    "stem": "chords",
-    "filter_hz": 750,
-    "echo_delays_beats": [
-      0,
-      0.75,
-      1.5,
-      2.25
-    ],
-    "echo_gain_ratio": 0.57,
-    "echo_filter_loss_hz": 220,
-    "echo_boundary": 90.0
+    "time": 89.03225806451613,
+    "stem": "keys",
+    "sampled_program": 0,
+    "velocity": 64,
+    "role": "primary",
+    "echo_delays_beats": [],
+    "register": "F3\u2013D4"
   },
   {
     "processor": "kick ducking",

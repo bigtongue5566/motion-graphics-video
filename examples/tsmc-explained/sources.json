@@ -2,7 +2,7 @@
   "title": "台積電｜從設計到矽晶",
   "created_date": "2026-10-10",
   "visuals": "New original procedural wafer, circuit, foundry, nanosheet and packaging concepts. No company logos, official illustrations, photos, footage or website screenshots are incorporated.",
-  "music": "New original Dub Techno arrangement at 124 BPM in D minor. Restrained four-on-the-floor pulse; dark chord stabs with three progressively filtered dotted-eighth echoes; slowly moving cutoff; sparse rim and hats; no foreground melody. Oscillators and generated noise only; no third-party recordings.",
+  "music": "Original 124 BPM D minor Minimal Piano House; sparse soft sampled piano triads, original electronic percussion and sub. No third-party song is used.",
   "source_code_origin": "MIT-licensed edm-music-production starter by bigtongue5566, adapted for this film.",
   "external_assets": [
     {
@@ -100,7 +100,7 @@
       "role": "素材與商標限制的參考；不是本片的素材使用授權"
     }
   ],
-  "revision": "2026-10-10-multi-style",
+  "revision": "2026-10-10-soft-piano-sync",
   "production_method_references": [
     {
       "title": "Designing dub chords in Ableton Live with El Choop/Pizza Hotline",
@@ -109,5 +109,38 @@
       "adopted": "Filtered minor chord stabs, rhythmic echoes and changing tone density."
     }
   ],
-  "method_reference_note": "Methods are interpreted in new code and notes; tutorial text, examples, samples and recordings are not embedded."
+  "method_reference_note": "Methods are interpreted in new code and notes; tutorial text, examples, samples and recordings are not embedded.",
+  "musical_identity": {
+    "style": "Minimal Piano House",
+    "bpm": 124,
+    "key": "D minor",
+    "harmonic_profile": "consonant",
+    "review": {
+      "scope": "0:54–1:14 picture comparison, focusing on 1:00–1:10",
+      "user_feedback": "音色較舒服，拍點也清楚",
+      "date": "2026-10-10",
+      "limit": "The full track has technical QC; user listening feedback covers the excerpt."
+    }
+  },
+  "sampled_instruments": [
+    {
+      "file": "GeneralUser-GS.sf2",
+      "version": "2.0.3",
+      "preset": "GM 0 acoustic piano",
+      "source_commit": "684543d5e5efaef08d02be50dcda8d552478fa60",
+      "author_url": "https://www.schristiancollins.com/generaluser.php",
+      "url": "https://raw.githubusercontent.com/mrbumpy409/GeneralUser-GS/684543d5e5efaef08d02be50dcda8d552478fa60/GeneralUser-GS.sf2",
+      "sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe",
+      "git_blob_sha1": "298b552d2e9d1307e03e5c5c99d2c046aaed9ec3",
+      "bytes": 32319396,
+      "license": "GeneralUser GS License v2.0; music creation permitted; sample-origin qualification retained"
+    },
+    {
+      "file": "GeneralUser-GS-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/mrbumpy409/GeneralUser-GS/684543d5e5efaef08d02be50dcda8d552478fa60/documentation/LICENSE.txt",
+      "sha256": "7b32efefdf95ce38a043799f0659853ddc00fbaa14d8c50f0aca16b9b8b405be",
+      "git_blob_sha1": "f8fc9c58d7574f2b0ce6cea86ff49192540bcc33",
+      "bytes": 2317
+    }
+  ]
 }

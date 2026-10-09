@@ -61,33 +61,48 @@ class Score:
             self.stems[stem][k:k + count] += sound[:count] * gain
 
     def note(self, stem, time, length, pitch, gain, pan=0., velocity=80, sound=None, boundary=None):
+        from continuity import tail_end
         end = self.duration if boundary is None else min(self.duration, boundary)
-        length = min(length, end - time)
-        if length < .009:
+        gate = min(length, end - time)
+        if gate < .009:
             return
         if not 0 <= pitch <= 127:
             raise ValueError("Transposition moved a note outside MIDI range")
-        self.events.append({"stem": stem, "time": time, "duration": length, "note": pitch, "velocity": velocity})
+        event = {"stem":stem,"time":time,"duration":gate,"note":pitch,"velocity":velocity}
+        self.events.append(event)
         if stem == "keys" and self.sf:
             return
         if sound is None:
-            sound = ins.pluck(pitch, length, 1900.)
-        rendered = np.asarray(sound[:round(length * self.sr)], dtype=np.float32)
-        if rendered.ndim == 1:
-            rendered = ins.soften(rendered, .003, min(.045, length / 4))
-        else:
-            rendered = np.column_stack([ins.soften(rendered[:, c], .003, min(.045, length / 4)) for c in range(2)])
+            sound = ins.pluck(pitch, gate, 1900.)
+        sound = np.asarray(sound, dtype=np.float32)
+        desired = min(self.duration, time + len(sound)/self.sr)
+        audible_end = tail_end(self.harmony, pitch, time+gate, desired)
+        count = max(0, round((audible_end-time)*self.sr))
+        rendered = sound[:count]
+        if count < len(sound):
+            if rendered.ndim == 1:
+                rendered = ins.soften(rendered, .002, min(.025, len(rendered)/self.sr/3))
+            else:
+                rendered = np.column_stack([ins.soften(rendered[:,c], .002, min(.025, len(rendered)/self.sr/3)) for c in range(2)])
+        event["sounding_duration"] = len(rendered)/self.sr
         self.add(stem, time, rendered, gain, pan)
 
     def keys(self, pitch, length):
-        t = np.arange(round(length * self.sr), dtype=np.float64) / self.sr
+        t = np.arange(round((length + .25) * self.sr), dtype=np.float64) / self.sr
         f = ins.hz(pitch)
         sound = np.zeros_like(t)
         for partial, amplitude, decay in [(1, .75, 2.), (2, .18, 3.5), (3, .065, 5.), (4, .025, 8.)]:
             sound += amplitude * np.sin(2 * math.pi * f * partial * t) * np.exp(-t * decay)
-        return ins.soften(sound, .005, min(.12, length / 3))
+        return ins.release_shape(sound, length, .005, .25)
 
     def arrange(self):
+        style = self.cfg["music"].get("style", "melodic-house")
+        if style != "melodic-house":
+            from arrangements import arrange
+            arrange(self, style)
+            if self.sf:
+                self.render_sampled_keys()
+            return
         kick, clap, hat, opened = ins.kick(), ins.clap(), ins.hat(), ins.hat(True)
         for chord in self.harmony:
             a, b, role = chord["start"], chord["end"], chord["role"]
@@ -113,12 +128,11 @@ class Score:
                     self.note("keys", a, length, pitch, .075, sound=self.keys(pitch, length), velocity=47, boundary=b)
 
             if drop or role == "groove":
-                phrase = [2, 1, 0, 1, 2, 1] if round(a / self.bar) % 2 == 0 else [1, 2, 1, 0, 1, 2]
-                for j, (off, beats, degree) in enumerate(zip([0., .75, 1.5, 2., 2.5, 3.25], [.60, .35, .42, .30, .50, .55], phrase)):
+                for j, (off, beats, pitch) in enumerate(zip([0., 1.5, 2., 3.], [1.08, .4, .8, .84], chord["hook"])):
                     start, length = a + off * self.beat, beats * self.beat
-                    pitch = chord["voices"][degree] + 12
-                    self.note("lead", start, length, pitch, .37 if drop else .16,
-                              -.10 if j % 2 else .10, sound=ins.pluck(pitch, length, 2100. if drop else 1500.), boundary=b)
+                    pitch -= 0 if drop else 12
+                    self.note("lead", start, length, pitch, .42 if drop else .19,
+                              -.09 if j % 2 else .09, sound=ins.pluck(pitch, length, 2400. if drop else 1600.), boundary=b)
             pulse = drop or role in ("groove", "build")
             for beat in range(4):
                 start = a + beat * self.beat
@@ -156,7 +170,7 @@ class Score:
         for i, section in enumerate(self.cfg["sections"]):
             start = section["start"]
             if i and section["role"] in ("drop", "groove", "outro"):
-                self.add("effects", start, ins.crash(), .29)
+                self.add("effects", start, ins.crash(), .40)
             if i and section["role"] == "drop":
                 length = min(1.75, start, self.cfg["sections"][i - 1]["end"] - self.cfg["sections"][i - 1]["start"])
                 if length > .1:
@@ -187,10 +201,6 @@ class Score:
                 for start, priority, type_ in [(event["time"], 2, "note_on"), (event["time"] + event["duration"], 0, "note_off")]:
                     message = mido.Message(type_, channel=channel, note=event["note"], velocity=event["velocity"] if type_ == "note_on" else 0)
                     queue.append((round(start / self.beat * 480), priority, message))
-            if name == "keys":
-                for chord in self.harmony[1:]:
-                    queue.append((round(chord["start"] / self.beat * 480), 1,
-                                  mido.Message("control_change", channel=channel, control=120, value=0)))
             previous = 0
             for tick, _, message in sorted(queue, key=lambda item: (item[0], item[1])):
                 message.time = tick - previous
@@ -223,20 +233,19 @@ class Score:
             sound = sound.astype(np.float32) / np.iinfo(sound.dtype).max()
         count = min(len(sound), self.n)
         self.stems["keys"][:count] = sound[:count] * 2.5
-        for chord in self.harmony[1:]:
-            k, r = round(chord["start"] * self.sr), min(round(.024 * self.sr), round(self.bar * self.sr / 4))
-            self.stems["keys"][k - r:k] *= np.cos(np.linspace(0, math.pi / 2, r))[:, None] ** 2
-            a = min(round(.006 * self.sr), self.n - k)
-            self.stems["keys"][k:k + a] *= np.sin(np.linspace(0, math.pi / 2, a))[:, None] ** 2
+        # Preserve the instrument's own note-off release. A chord boundary
+        # is not a reason to fade the entire sampled-instrument bus.
         self.instrument_source = "FluidSynth piano using " + self.sf.name + "; original electronic synthesis"
 
     def mix(self):
         for name, cutoff in [("keys", 140), ("pad", 230), ("chords", 220), ("lead", 350), ("arp", 420)]:
             self.stems[name] = ins.filt(self.stems[name], cutoff)
-        self.stems["bass"] = ins.filt(self.stems["bass"], 230, "lowpass")
+        style = self.cfg["music"].get("style", "melodic-house")
+        self.stems["bass"] = ins.filt(self.stems["bass"], {"melodic-house":230, "breakbeat":480, "drum-and-bass":1200}[style], "lowpass")
         duck = np.ones(self.n, np.float32)
         t = np.arange(round(min(.35, self.beat * .7) * self.sr)) / self.sr
-        reduction = 1 - .63 * np.exp(-t * 13)
+        depth = {"melodic-house":.63, "breakbeat":.38, "drum-and-bass":.30}[style]
+        reduction = 1 - depth * np.exp(-t * (24 if style == "drum-and-bass" else 13))
         ramp = min(len(t), round(.004 * self.sr))
         reduction[:ramp] = np.linspace(1, reduction[min(ramp, len(t) - 1)], ramp)
         for start in self.kicks:
@@ -263,22 +272,28 @@ class Score:
                 wavfile.write(folder / f"{self.cfg['slug']}-{name}.wav", self.sr, (stem * headroom).astype(np.float32))
 
     def audit(self):
+        from harmonic_comfort import check_profile
+        consonance = check_profile(self.events, self.cfg["music"])
         conflicts = []
         for event in self.events:
             if event["stem"] == "drums":
                 continue
             for chord in self.harmony:
-                if event["time"] < chord["end"] - 1e-7 and event["time"] + event["duration"] > chord["start"] + 1e-7:
+                if event["time"] < chord["end"] - 1/self.sr and event["time"] + event.get("sounding_duration", event["duration"]) > chord["start"] + 1/self.sr:
                     if event["note"] % 12 not in chord["pcs"]:
                         conflicts.append(event)
         if conflicts:
             raise ValueError("Unexpected chord conflicts in this simple triad arrangement")
         key = self.cfg["music"]["key"]
+        from styles import PRESETS
+        style = self.cfg["music"].get("style", "melodic-house")
         metadata = {"duration_seconds": self.duration, "bpm": self.bpm, "key": key, "original_composition": True,
+                    "style": style, "starter_timbres": (["SoundFont piano", *PRESETS[style]["timbres"][1:]] if self.sf else PRESETS[style]["timbres"]),
                     "instrument_source": self.instrument_source, "soundfont_source": self.cfg["music"].get("soundfont_source"),
                     "soundfont_sha256": hashlib.sha256(self.sf.read_bytes()).hexdigest() if self.sf else None,
                     "soundfont_license_file": Path(self.cfg["music"]["license"]).name if self.cfg["music"].get("license") else None,
                     "note_events": len(self.events), "unexpected_chord_conflicts": len(conflicts),
+                    "consonance_check": consonance,
                     "limits": "Symbolic note and signal checks do not establish listening quality.",
                     "harmony": [{k: v for k, v in c.items() if k != "pcs"} for c in self.harmony]}
         (self.root / "work" / "note-events.json").write_text(json.dumps(self.events, indent=2), encoding="utf-8")
@@ -293,6 +308,8 @@ if __name__ == "__main__":
     root, cfg = load(args.project)
     score = Score(root, cfg)
     score.arrange()
+    from continuity import apply_continuity
+    apply_continuity(score)
     score.audit()
     score.mix()
     score.write_midi(root / "outputs" / f"{cfg['slug']}-music.mid")

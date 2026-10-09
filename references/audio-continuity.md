@@ -23,3 +23,9 @@
 10ms 深谷診斷可提示一秒 RMS 漏掉的空隙，但刻意休止不是故障，量測不證明音色悅耳。沒有聽音能力時，交付可播放對照與客觀結果，不宣稱試聽通過。
 
 方法參考：[Ableton 的 ADSR／legato 說明](https://www.ableton.com/en/manual/live-instrument-reference/)、[Native Instruments 的 Pad／低音／節奏聲部分工](https://blog.native-instruments.com/how-to-make-a-deep-house-track/)，2026-10-10 查閱；使用方法，未複製教學錄音。
+
+## 協和預設與跨聲部檢查
+
+預設先用大／小三和弦與平順的聲部移動，不自動加入七度／九度、二度／半音堆疊、三全音或未解決懸留。節奏、鼓型、音色及段落足以建立不同風格。明確要求張力時再選 intentional-tension，記錄意圖並安排解決。
+
+範本的 music.harmonic_profile 預設 consonant；harmonic_comfort.py 檢查同時發聲的聲部與已追蹤 release，發現二度／七度或三全音即提示改寫。音符符合調性並不代表重疊後協和。取樣尾音及效果仍需在音訊中檢查；協和的三和弦也可能因音域、音色、失諧或力度而刺耳。因果不明時，用相同音色比較和弦，再用相同和弦比較音色。

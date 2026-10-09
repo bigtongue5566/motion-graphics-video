@@ -29,7 +29,7 @@ def run(arguments,log=None,binary=False):
 
 run(["-y","-i",str(work/"picture.mp4"),"-i",str(out/(cfg["slug"]+".m4a")),"-map","0:v:0","-map","1:a:0","-c","copy",
      "-t",str(cfg["duration"]),"-movflags","+faststart","-metadata","title="+cfg["name"],
-     "-metadata","comment=Original procedural animation and synthesized electronic music; see source and rights records.",str(movie)],"mux.log")
+     "-metadata","comment=Original procedural animation and composition; GeneralUser GS sampled piano and original electronic percussion; see source and rights records.",str(movie)],"mux.log")
 metadata=run(["-i",str(movie),"-map","0","-c","copy","-f","null","-"],"encoded-metadata.log")
 duration=re.search(r"Duration:\s*(\d+):(\d+):([\d.]+)",metadata.stderr)
 seconds=int(duration[1])*3600+int(duration[2])*60+float(duration[3])

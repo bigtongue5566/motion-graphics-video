@@ -4,7 +4,7 @@
 
 - **文字與事實**：公司資訊由公開官方資料核對，再以自己的文字整理。逐段內容、來源網址、事件／數據年度及查核日期列於 [SOURCES.md](SOURCES.md) 和 [claims.json](claims.json)。沒有搬用官方宣傳段落。
 - **圖形與動畫**：自行繪製的晶圓、電路、製程及封裝概念；不是官方工程圖或實拍。本案沒有納入公司 Logo、官網圖表、照片、影片、新聞畫面或人物肖像。
-- **配樂**：新的作曲與電子音色合成，沒有第三方歌曲或取樣錄音。可編輯 MIDI 和重現程式已附上。
+- **配樂**：原創作曲與電子打擊／低音，鋼琴使用 S. Christian Collins 的 GeneralUser GS 2.0.3 取樣音源，由 FluidSynth 演奏；沒有使用第三方歌曲。官方 License v2.0 允許私人與商業音樂創作；授權同時保留部分樣本最初來源無法完全確認的說明，原文附於 licenses/GeneralUser-GS-LICENSE.txt。音源未打包，重現下載固定官方 commit 與 SHA-256。可編輯 MIDI 和程式已附上。
 - **字型**：Noto Sans CJK TC 與 Space Grotesk，使用 SIL Open Font License 1.1。實際來源 commit、網址與 SHA-256 見 sources.json；未修改的授權原文見 licenses/。
 - **程式與原創部分**：依本來源包的 MIT LICENSE 提供。MIT 不授予台積電名稱、商標、任何第三方作品或字型的其他權利；字型仍依 OFL 條款。
 

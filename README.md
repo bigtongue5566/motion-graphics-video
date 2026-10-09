@@ -16,7 +16,7 @@ Skill instructions and production references are written in Traditional Chinese.
 [Reproducible source](examples/tsmc-explained)
 
 An independent, unofficial introduction to TSMC, with original conceptual wafer,
-transistor and packaging animation and a new 124 BPM D minor Dub Techno score.
+transistor and packaging animation and a new 124 BPM D minor Minimal Piano House score.
 Reported 2025 facts and N2 production timing are linked to official primary sources
 in the film, the player page, [SOURCES.md](examples/tsmc-explained/SOURCES.md),
 and the machine-readable [claim ledger](examples/tsmc-explained/claims.json).
@@ -52,8 +52,8 @@ documented sources, MIDI, editable code, and checks of the finished media.
 ## Refreshed multi-style showcase
 
 The four current films and soundtracks were recomposed and re-rendered on 2026-10-10:
-Future Bass (148 BPM), Drum & Bass (172 BPM), UK Garage (132 BPM), and Dub Techno (124 BPM).
-Their source packages retain explicit extended chords, notes, actual synthesis/automation,
+Future Bass (148 BPM), Drum & Bass (172 BPM), UK Garage (132 BPM), and Minimal Piano House (124 BPM).
+Their source packages retain explicit chord voicings, notes, actual synthesis/automation,
 MIDI and finished-media QC. These custom example implementations are separate from the
 audio starter's three selectable presets. The films follow the new audio and actual kick events.
 
@@ -170,7 +170,8 @@ and visual review remain necessary to assess musical and design quality.
 The [audio continuity guide](references/audio-continuity.md) covers MIDI gates versus
 release tails, shared-note ties, legato articulation and 10ms gap diagnostics.
 The standalone video starter now includes the repaired renderer and helpers.
-Pad ties and room are opt-in. The guide also covers harsh timbres,
+Pad ties and room are opt-in. New projects default to consonant triads
+with cross-part interval checks; intentional tension needs an explicit brief. The guide also covers harsh timbres,
 primary/echo beat placement and verifying picture cues in the final MP4.
 
 ## License
