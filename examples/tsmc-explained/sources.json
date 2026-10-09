@@ -2,7 +2,7 @@
   "title": "台積電｜從設計到矽晶",
   "created_date": "2026-10-10",
   "visuals": "New original procedural wafer, circuit, foundry, nanosheet and packaging concepts. No company logos, official illustrations, photos, footage or website screenshots are incorporated.",
-  "music": "New original 120 BPM E minor electronic composition and synthesis; no third-party recordings or sampled music.",
+  "music": "New original Dub Techno arrangement at 124 BPM in D minor. Restrained four-on-the-floor pulse; dark chord stabs with three progressively filtered dotted-eighth echoes; slowly moving cutoff; sparse rim and hats; no foreground melody. Oscillators and generated noise only; no third-party recordings.",
   "source_code_origin": "MIT-licensed edm-music-production starter by bigtongue5566, adapted for this film.",
   "external_assets": [
     {
@@ -99,5 +99,15 @@
       "locator": "Restrictions on Use of Content; Trademarks and Service Marks",
       "role": "素材與商標限制的參考；不是本片的素材使用授權"
     }
-  ]
+  ],
+  "revision": "2026-10-10-multi-style",
+  "production_method_references": [
+    {
+      "title": "Designing dub chords in Ableton Live with El Choop/Pizza Hotline",
+      "publisher": "Ableton",
+      "url": "https://www.ableton.com/en/blog/designing-dub-chords-in-ableton-live-with-el-chooppizza-hotline/",
+      "adopted": "Filtered minor chord stabs, rhythmic echoes and changing tone density."
+    }
+  ],
+  "method_reference_note": "Methods are interpreted in new code and notes; tutorial text, examples, samples and recordings are not embedded."
 }

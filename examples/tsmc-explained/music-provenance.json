@@ -1,0 +1,61 @@
+{
+  "composition": "original Dub Techno Demo arrangement",
+  "bpm": 124.0,
+  "key": "D minor",
+  "instrument_source": "original oscillators and generated percussion noise; no sampled recordings",
+  "soundfont_source": null,
+  "soundfont_sha256": null,
+  "soundfont_license_file": null,
+  "sections": [
+    {
+      "start": 0.0,
+      "end": 7.741935483870968,
+      "role": "intro",
+      "label": "從設計到矽晶"
+    },
+    {
+      "start": 7.741935483870968,
+      "end": 19.35483870967742,
+      "role": "groove",
+      "label": "一種專注的分工"
+    },
+    {
+      "start": 19.35483870967742,
+      "end": 30.967741935483872,
+      "role": "build",
+      "label": "專業晶圓代工"
+    },
+    {
+      "start": 30.967741935483872,
+      "end": 42.58064516129032,
+      "role": "drop",
+      "label": "服務的廣度"
+    },
+    {
+      "start": 42.58064516129032,
+      "end": 56.12903225806452,
+      "role": "break",
+      "label": "製程持續演進"
+    },
+    {
+      "start": 56.12903225806452,
+      "end": 69.6774193548387,
+      "role": "drop",
+      "label": "先進封裝"
+    },
+    {
+      "start": 69.6774193548387,
+      "end": 79.35483870967742,
+      "role": "groove",
+      "label": "不同的應用"
+    },
+    {
+      "start": 79.35483870967742,
+      "end": 90.0,
+      "role": "outro",
+      "label": "非官方・獨立介紹"
+    }
+  ],
+  "midi_note": "GM instrument suggestions; MIDI playback will not reproduce the custom synthesized audio.",
+  "stem_note": "Float32 premaster stems share gain and fades; they are not separately loudness normalized."
+}

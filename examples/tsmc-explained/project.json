@@ -3,16 +3,16 @@
   "name": "台積電｜從設計到矽晶",
   "duration": 90.0,
   "music": {
-    "bpm": 120.0,
-    "key": "E minor",
+    "bpm": 124,
+    "key": "D minor",
     "progression": [
       "i",
       "VI",
       "III",
       "VII"
     ],
-    "seed": 20261013,
-    "style": "Melodic House / Technology",
+    "seed": 26101044,
+    "style": "Dub Techno",
     "arrangement": "silicon",
     "lufs": -16.0,
     "true_peak": -2.0,
@@ -20,54 +20,78 @@
     "soundfont": null,
     "fluidsynth": null,
     "soundfont_source": null,
-    "license": null
+    "license": null,
+    "identity": "dub-techno",
+    "voiced_chords": [
+      {
+        "name": "Dm7",
+        "voices": [
+          53,
+          57,
+          60,
+          62
+        ],
+        "root": 38
+      },
+      {
+        "name": "Gm9",
+        "voices": [
+          58,
+          62,
+          65,
+          69
+        ],
+        "root": 43
+      }
+    ],
+    "sound_design": "Restrained four-on-the-floor pulse; dark chord stabs with three progressively filtered dotted-eighth echoes; slowly moving cutoff; sparse rim and hats; no foreground melody."
   },
   "sections": [
     {
-      "start": 0,
-      "end": 8,
+      "start": 0.0,
+      "end": 7.741935483870968,
       "role": "intro",
       "label": "從設計到矽晶"
     },
     {
-      "start": 8,
-      "end": 20,
+      "start": 7.741935483870968,
+      "end": 19.35483870967742,
       "role": "groove",
       "label": "一種專注的分工"
     },
     {
-      "start": 20,
-      "end": 32,
+      "start": 19.35483870967742,
+      "end": 30.967741935483872,
       "role": "build",
       "label": "專業晶圓代工"
     },
     {
-      "start": 32,
-      "end": 44,
+      "start": 30.967741935483872,
+      "end": 42.58064516129032,
       "role": "drop",
       "label": "服務的廣度"
     },
     {
-      "start": 44,
-      "end": 58,
+      "start": 42.58064516129032,
+      "end": 56.12903225806452,
       "role": "break",
       "label": "製程持續演進"
     },
     {
-      "start": 58,
-      "end": 70,
+      "start": 56.12903225806452,
+      "end": 69.6774193548387,
       "role": "drop",
       "label": "先進封裝"
     },
     {
-      "start": 70,
-      "end": 80,
+      "start": 69.6774193548387,
+      "end": 79.35483870967742,
       "role": "groove",
       "label": "不同的應用"
     },
     {
-      "start": 80,
-      "end": 90,
+      "start": 79.35483870967742,
+      "end": 90.0,
       "role": "outro",
       "label": "非官方・獨立介紹"
     }
@@ -88,8 +112,8 @@
     },
     "scenes": [
       {
-        "start": 0,
-        "end": 8,
+        "start": 0.0,
+        "end": 7.741935483870968,
         "kind": "opening",
         "headline": "台積電",
         "caption": "從設計到矽晶",
@@ -99,8 +123,8 @@
         ]
       },
       {
-        "start": 8,
-        "end": 20,
+        "start": 7.741935483870968,
+        "end": 19.35483870967742,
         "kind": "foundation",
         "headline": "1987",
         "caption": "一種專注的分工",
@@ -111,8 +135,8 @@
         ]
       },
       {
-        "start": 20,
-        "end": 32,
+        "start": 19.35483870967742,
+        "end": 30.967741935483872,
         "kind": "foundry",
         "headline": "把設計\n做成晶片",
         "caption": "專業晶圓代工",
@@ -123,8 +147,8 @@
         ]
       },
       {
-        "start": 32,
-        "end": 44,
+        "start": 30.967741935483872,
+        "end": 42.58064516129032,
         "kind": "scale",
         "headline": "2025 年",
         "caption": "服務的廣度",
@@ -134,8 +158,8 @@
         ]
       },
       {
-        "start": 44,
-        "end": 58,
+        "start": 42.58064516129032,
+        "end": 56.12903225806452,
         "kind": "nanosheet",
         "headline": "N2",
         "caption": "製程持續演進",
@@ -146,8 +170,8 @@
         ]
       },
       {
-        "start": 58,
-        "end": 70,
+        "start": 56.12903225806452,
+        "end": 69.6774193548387,
         "kind": "packaging",
         "headline": "連接更多\n運算能力",
         "caption": "先進封裝",
@@ -157,8 +181,8 @@
         ]
       },
       {
-        "start": 70,
-        "end": 80,
+        "start": 69.6774193548387,
+        "end": 79.35483870967742,
         "kind": "applications",
         "headline": "從運算\n走進生活",
         "caption": "不同的應用",
@@ -169,8 +193,8 @@
         ]
       },
       {
-        "start": 80,
-        "end": 90,
+        "start": 79.35483870967742,
+        "end": 90.0,
         "kind": "sources",
         "headline": "用來源\n理解台積電",
         "caption": "非官方・獨立介紹",
@@ -242,5 +266,6 @@
         "role": "素材與商標限制的參考；不是本片的素材使用授權"
       }
     ]
-  }
+  },
+  "revision": "2026-10-10-multi-style"
 }

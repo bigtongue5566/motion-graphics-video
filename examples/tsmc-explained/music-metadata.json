@@ -1,0 +1,226 @@
+{
+  "duration_seconds": 90.0,
+  "bpm": 124.0,
+  "key": "D minor",
+  "style": "Dub Techno",
+  "identity": "dub-techno",
+  "sound_design": "Restrained four-on-the-floor pulse; dark chord stabs with three progressively filtered dotted-eighth echoes; slowly moving cutoff; sparse rim and hats; no foreground melody.",
+  "original_composition": true,
+  "instrument_source": "original oscillators and generated percussion noise; no sampled recordings",
+  "note_events": 935,
+  "unexpected_chord_conflicts": 0,
+  "harmonic_audit": "Explicit root and seventh/ninth chord pitch classes; sounding echoes clipped at harmonic boundaries.",
+  "limits": "Symbolic harmony and signal measurements do not establish listening quality.",
+  "harmony": [
+    {
+      "start": 0.0,
+      "end": 7.741935483870968,
+      "role": "intro",
+      "name": "Dm7",
+      "voices": [
+        53,
+        57,
+        60,
+        62
+      ],
+      "root": 38,
+      "section": 0
+    },
+    {
+      "start": 7.741935483870968,
+      "end": 15.483870967741936,
+      "role": "groove",
+      "name": "Gm9",
+      "voices": [
+        58,
+        62,
+        65,
+        69
+      ],
+      "root": 43,
+      "section": 1
+    },
+    {
+      "start": 15.483870967741936,
+      "end": 19.35483870967742,
+      "role": "groove",
+      "name": "Dm7",
+      "voices": [
+        53,
+        57,
+        60,
+        62
+      ],
+      "root": 38,
+      "section": 1
+    },
+    {
+      "start": 19.35483870967742,
+      "end": 27.096774193548388,
+      "role": "build",
+      "name": "Gm9",
+      "voices": [
+        58,
+        62,
+        65,
+        69
+      ],
+      "root": 43,
+      "section": 2
+    },
+    {
+      "start": 27.096774193548388,
+      "end": 30.967741935483872,
+      "role": "build",
+      "name": "Dm7",
+      "voices": [
+        53,
+        57,
+        60,
+        62
+      ],
+      "root": 38,
+      "section": 2
+    },
+    {
+      "start": 30.967741935483872,
+      "end": 38.70967741935484,
+      "role": "drop",
+      "name": "Gm9",
+      "voices": [
+        58,
+        62,
+        65,
+        69
+      ],
+      "root": 43,
+      "section": 3
+    },
+    {
+      "start": 38.70967741935484,
+      "end": 42.58064516129032,
+      "role": "drop",
+      "name": "Dm7",
+      "voices": [
+        53,
+        57,
+        60,
+        62
+      ],
+      "root": 38,
+      "section": 3
+    },
+    {
+      "start": 42.58064516129032,
+      "end": 50.32258064516129,
+      "role": "break",
+      "name": "Gm9",
+      "voices": [
+        58,
+        62,
+        65,
+        69
+      ],
+      "root": 43,
+      "section": 4
+    },
+    {
+      "start": 50.32258064516129,
+      "end": 56.12903225806452,
+      "role": "break",
+      "name": "Dm7",
+      "voices": [
+        53,
+        57,
+        60,
+        62
+      ],
+      "root": 38,
+      "section": 4
+    },
+    {
+      "start": 56.12903225806452,
+      "end": 63.87096774193549,
+      "role": "drop",
+      "name": "Gm9",
+      "voices": [
+        58,
+        62,
+        65,
+        69
+      ],
+      "root": 43,
+      "section": 5
+    },
+    {
+      "start": 63.87096774193549,
+      "end": 69.6774193548387,
+      "role": "drop",
+      "name": "Dm7",
+      "voices": [
+        53,
+        57,
+        60,
+        62
+      ],
+      "root": 38,
+      "section": 5
+    },
+    {
+      "start": 69.6774193548387,
+      "end": 77.41935483870967,
+      "role": "groove",
+      "name": "Gm9",
+      "voices": [
+        58,
+        62,
+        65,
+        69
+      ],
+      "root": 43,
+      "section": 6
+    },
+    {
+      "start": 77.41935483870967,
+      "end": 79.35483870967742,
+      "role": "groove",
+      "name": "Dm7",
+      "voices": [
+        53,
+        57,
+        60,
+        62
+      ],
+      "root": 38,
+      "section": 6
+    },
+    {
+      "start": 79.35483870967742,
+      "end": 87.09677419354838,
+      "role": "outro",
+      "name": "Dm7",
+      "voices": [
+        53,
+        57,
+        60,
+        62
+      ],
+      "root": 38,
+      "section": 7
+    },
+    {
+      "start": 87.09677419354838,
+      "end": 90.0,
+      "role": "outro",
+      "name": "Dm7",
+      "voices": [
+        53,
+        57,
+        60,
+        62
+      ],
+      "root": 38,
+      "section": 7
+    }
+  ]
+}

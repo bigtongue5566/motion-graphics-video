@@ -16,7 +16,7 @@ Skill instructions and production references are written in Traditional Chinese.
 [Reproducible source](examples/tsmc-explained)
 
 An independent, unofficial introduction to TSMC, with original conceptual wafer,
-transistor and packaging animation and a new 120 BPM E minor electronic score.
+transistor and packaging animation and a new 124 BPM D minor Dub Techno score.
 Reported 2025 facts and N2 production timing are linked to official primary sources
 in the film, the player page, [SOURCES.md](examples/tsmc-explained/SOURCES.md),
 and the machine-readable [claim ledger](examples/tsmc-explained/claims.json).
@@ -35,7 +35,7 @@ Attribution does not grant rights or guarantee against legal claims; see the
 [Explore this Skill on Skill Showcase](https://bigtongue5566.github.io/?skill=motion-graphics-video)
 
 An original 1080p motion study with procedural geometry and a synchronized
-Melodic House soundtrack. The shared [production example](https://github.com/bigtongue5566/edm-music-production/tree/main/examples/form-and-frequency)
+Future Bass soundtrack. The shared [production example](https://github.com/bigtongue5566/edm-music-production/tree/main/examples/form-and-frequency)
 includes its render source, MIDI, media checks, and [sources and licenses](https://github.com/bigtongue5566/edm-music-production/blob/main/examples/form-and-frequency/RIGHTS.md).
 
 
@@ -43,11 +43,19 @@ includes its render source, MIDI, media checks, and [sources and licenses](https
 
 | Work | Music | Film | Standalone soundtrack | Reproducible source |
 | --- | --- | --- | --- | --- |
-| Digital Pulse / 數位脈動 | 60 sec · 128 BPM · Progressive House | [Watch](https://bigtongue5566.github.io/?demo=digital-pulse) | [Listen](https://bigtongue5566.github.io/?demo=digital-pulse-music) | [Project](https://github.com/bigtongue5566/edm-music-production/tree/main/examples/digital-pulse) |
-| Neon Drift / 霓虹漫遊 | 60 sec · 96 BPM · Synthwave / Electronic | [Watch](https://bigtongue5566.github.io/?demo=neon-drift) | [Listen](https://bigtongue5566.github.io/?demo=neon-drift-music) | [Project](https://github.com/bigtongue5566/edm-music-production/tree/main/examples/neon-drift) |
+| Digital Pulse / 數位脈動 | 60 sec · 172 BPM · Drum & Bass | [Watch](https://bigtongue5566.github.io/?demo=digital-pulse) | [Listen](https://bigtongue5566.github.io/?demo=digital-pulse-music) | [Project](https://github.com/bigtongue5566/edm-music-production/tree/main/examples/digital-pulse) |
+| Neon Drift / 霓虹漫遊 | 60 sec · 132 BPM · UK Garage | [Watch](https://bigtongue5566.github.io/?demo=neon-drift) | [Listen](https://bigtongue5566.github.io/?demo=neon-drift-music) | [Project](https://github.com/bigtongue5566/edm-music-production/tree/main/examples/neon-drift) |
 
 Each work has a new musical arrangement and original procedural visuals,
 documented sources, MIDI, editable code, and checks of the finished media.
+
+## Refreshed multi-style showcase
+
+The four current films and soundtracks were recomposed and re-rendered on 2026-10-10:
+Future Bass (148 BPM), Drum & Bass (172 BPM), UK Garage (132 BPM), and Dub Techno (124 BPM).
+Their source packages retain explicit extended chords, notes, actual synthesis/automation,
+MIDI and finished-media QC. These custom example implementations are separate from the
+audio starter's three selectable presets. The films follow the new audio and actual kick events.
 
 ## Starter preview
 

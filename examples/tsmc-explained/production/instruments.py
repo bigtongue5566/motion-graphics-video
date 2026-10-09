@@ -118,3 +118,46 @@ def crash():
     t = np.arange(round(1.55 * SR), dtype=np.float64) / SR
     noise = filt(RNG.standard_normal(len(t)).astype(np.float32), [4500, 13500], "bandpass")
     return soften(noise * np.exp(-t * 4.5) * .065, .002, .2)
+
+
+@lru_cache(maxsize=256)
+def tine_keys(note, duration):
+    t = np.arange(round(duration * SR)) / SR
+    f = hz(note)
+    # Integer-ratio modulation and damped partials; independently synthesized, no samples.
+    body = np.sin(2 * math.pi * f * t + .65 * np.exp(-t * 5) * np.sin(2 * math.pi * 2 * f * t))
+    body += .12 * np.sin(2 * math.pi * 3 * f * t) * np.exp(-t * 8)
+    return soften(body * np.exp(-t * 3.2) * .43, .008, min(.10, duration / 4))
+
+
+@lru_cache(maxsize=256)
+def organ_voice(note, duration):
+    t = np.arange(round(duration * SR)) / SR
+    f = hz(note)
+    body = sum(weight * np.sin(2 * math.pi * f * h * t) for h, weight in [(1, .65), (2, .20), (4, .08)] if f * h < 16000)
+    return soften(body * .42, min(.045, duration / 4), min(.14, duration / 4))
+
+
+@lru_cache(maxsize=128)
+def reese_voice(note, duration):
+    t = np.arange(round(duration * SR)) / SR
+    f = hz(note)
+    body = .65 * np.sin(2 * math.pi * f * t)
+    for detune in [2 ** (-6 / 1200), 2 ** (6 / 1200)]:
+        for h in [2, 3, 4, 5]:
+            body += .20 / h * np.sin(2 * math.pi * f * detune * h * t)
+    body = np.tanh(body * 1.6) * (.85 + .15 * np.sin(2 * math.pi * 1.1 * t)) * .40
+    return soften(body, .012, min(.07, duration / 4))
+
+
+def tight_kick(fast=False):
+    t = np.arange(round((.17 if fast else .24) * SR)) / SR
+    phase = 2 * math.pi * np.cumsum(53 + 145 * np.exp(-t * 65)) / SR
+    return soften(np.sin(phase) * np.exp(-t * (22 if fast else 16)) * .82, .0008, .025)
+
+
+def snare(fast=False):
+    t = np.arange(round((.14 if fast else .21) * SR)) / SR
+    noise = filt(RNG.standard_normal(len(t)).astype(np.float32), [1000, 8500], "bandpass")
+    body = .25 * np.sin(2 * math.pi * 185 * t) * np.exp(-t * 27)
+    return soften((body + noise * .30 * np.exp(-t * (30 if fast else 22))), .001, .035)

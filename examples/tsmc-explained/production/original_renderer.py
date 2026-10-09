@@ -1,5 +1,6 @@
 """Original, audio-reactive geometric film. No stock images or company identities."""
 import argparse
+from bisect import bisect_right
 from functools import lru_cache
 import json
 import math
@@ -42,6 +43,8 @@ class Film:
         self.duration, self.palette = self.cfg["duration"], video["palette"]
         self.scenes = video["scenes"]
         self.beat = 60 / self.cfg["music"]["bpm"]
+        events = json.loads((self.root / 'work/note-events.json').read_text(encoding='utf-8'))
+        self.kick_times = sorted(e['time'] for e in events if e['stem'] == 'drums' and e['note'] == 36)
         self.surface = skia.Surface.MakeRaster(skia.ImageInfo.Make(self.w, self.h,
                        skia.ColorType.kRGBA_8888_ColorType, skia.AlphaType.kPremul_AlphaType))
         self.faces = {}
@@ -82,6 +85,10 @@ class Film:
         self.cube_vertices = np.array([[-1,-1,-1], [1,-1,-1], [1,1,-1], [-1,1,-1],
                                       [-1,-1,1], [1,-1,1], [1,1,1], [-1,1,1]], dtype=float)
         self.cube_faces = [[0,1,2,3], [4,5,6,7], [0,4,7,3], [1,5,6,2], [0,1,5,4], [3,2,6,7]]
+
+    def pulse_at(self, time):
+        index = bisect_right(self.kick_times, time) - 1
+        return math.exp(-(time - self.kick_times[index]) / .13) if index >= 0 else 0.
 
     @lru_cache(maxsize=160)
     def font(self, size, language="en", bold=False):
@@ -226,7 +233,7 @@ class Film:
         ink = "#080C16" if light else "#F2F2EA"
         muted = "#64736E" if light else "#94A5AA"
         self.text(c, "MOTION / MUSIC STUDY 01", 104, 86, 20, muted, .95)
-        self.text(c, "90 SEC   /   128 BPM", 1510, 86, 20, muted, .95)
+        self.text(c, f"{self.duration:g} SEC   /   {self.cfg['music']['bpm']:g} BPM", 1510, 86, 20, muted, .95)
         self.text(c, "聲形之間", 104, 984, 23, ink, .85)
         self.text(c, "ORIGINAL MOTION + ORIGINAL MUSIC", 1212, 984, 18, muted, .95)
         start, length = 104, 1712
@@ -241,7 +248,7 @@ class Film:
         c.drawImage(self.backgrounds[light], 0, 0)
         level = float(min(1., self.levels[frame]))
         role = next(section["role"] for section in self.cfg["sections"] if t < section["end"])
-        pulse = math.exp(-((t / self.beat) % 1) * 7) if role in ("drop", "groove", "build") else 0.
+        pulse = self.pulse_at(t)
         self.chrome(c, scene, t, light)
         if scene["kind"] == "outro":
             self.torus(c, t, level, pulse, cx=960, cy=345, scale=.54)
@@ -308,7 +315,7 @@ class Film:
         ff = imageio_ffmpeg.get_ffmpeg_exe()
         command = [ff, "-y", "-hide_banner", "-loglevel", "warning", "-f", "rawvideo", "-pix_fmt", "rgba",
                    "-s", f"{self.w}x{self.h}", "-r", str(self.fps), "-i", "pipe:0", "-an",
-                   "-c:v", "libx264", "-preset", "fast", "-crf", "19", "-pix_fmt", "yuv420p",
+                   "-c:v", "libx264", "-threads", "4", "-preset", "fast", "-crf", "19", "-pix_fmt", "yuv420p",
                    "-movflags", "+faststart", str(work / "picture.mp4")]
         with (work / "picture-render.log").open("wb") as log:
             process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=log)

@@ -1,0 +1,612 @@
+[
+  {
+    "time": 0.24193548387096775,
+    "stem": "chords",
+    "filter_hz": 1000,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 7.741935483870968
+  },
+  {
+    "time": 4.112903225806452,
+    "stem": "chords",
+    "filter_hz": 1150,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 7.741935483870968
+  },
+  {
+    "time": 7.983870967741936,
+    "stem": "chords",
+    "filter_hz": 1300,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 15.483870967741936
+  },
+  {
+    "time": 11.85483870967742,
+    "stem": "chords",
+    "filter_hz": 1500,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 15.483870967741936
+  },
+  {
+    "time": 15.725806451612904,
+    "stem": "chords",
+    "filter_hz": 1700,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 19.35483870967742
+  },
+  {
+    "time": 19.596774193548388,
+    "stem": "chords",
+    "filter_hz": 1850,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 27.096774193548388
+  },
+  {
+    "time": 23.467741935483872,
+    "stem": "chords",
+    "filter_hz": 2000,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 27.096774193548388
+  },
+  {
+    "time": 27.338709677419356,
+    "stem": "chords",
+    "filter_hz": 2050,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 30.967741935483872
+  },
+  {
+    "time": 31.20967741935484,
+    "stem": "chords",
+    "filter_hz": 2050,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 38.70967741935484
+  },
+  {
+    "time": 33.145161290322584,
+    "stem": "chords",
+    "filter_hz": 2000,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 38.70967741935484
+  },
+  {
+    "time": 35.08064516129033,
+    "stem": "chords",
+    "filter_hz": 1950,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 38.70967741935484
+  },
+  {
+    "time": 36.16935483870968,
+    "stem": "chords",
+    "filter_hz": 1950,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 38.70967741935484
+  },
+  {
+    "time": 37.016129032258064,
+    "stem": "chords",
+    "filter_hz": 1900,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 38.70967741935484
+  },
+  {
+    "time": 38.95161290322581,
+    "stem": "chords",
+    "filter_hz": 1850,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 42.58064516129032
+  },
+  {
+    "time": 40.88709677419355,
+    "stem": "chords",
+    "filter_hz": 1750,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 42.58064516129032
+  },
+  {
+    "time": 42.82258064516129,
+    "stem": "chords",
+    "filter_hz": 1650,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 50.32258064516129
+  },
+  {
+    "time": 46.693548387096776,
+    "stem": "chords",
+    "filter_hz": 1450,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 50.32258064516129
+  },
+  {
+    "time": 50.564516129032256,
+    "stem": "chords",
+    "filter_hz": 1250,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 56.12903225806452
+  },
+  {
+    "time": 54.43548387096774,
+    "stem": "chords",
+    "filter_hz": 1100,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 56.12903225806452
+  },
+  {
+    "time": 56.37096774193549,
+    "stem": "chords",
+    "filter_hz": 1000,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 63.87096774193549
+  },
+  {
+    "time": 58.30645161290323,
+    "stem": "chords",
+    "filter_hz": 950,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 63.87096774193549
+  },
+  {
+    "time": 59.395161290322584,
+    "stem": "chords",
+    "filter_hz": 950,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 63.87096774193549
+  },
+  {
+    "time": 60.24193548387097,
+    "stem": "chords",
+    "filter_hz": 950,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 63.87096774193549
+  },
+  {
+    "time": 62.17741935483871,
+    "stem": "chords",
+    "filter_hz": 900,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 63.87096774193549
+  },
+  {
+    "time": 64.11290322580645,
+    "stem": "chords",
+    "filter_hz": 900,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 69.6774193548387
+  },
+  {
+    "time": 66.04838709677419,
+    "stem": "chords",
+    "filter_hz": 900,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 69.6774193548387
+  },
+  {
+    "time": 67.13709677419355,
+    "stem": "chords",
+    "filter_hz": 900,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 69.6774193548387
+  },
+  {
+    "time": 67.98387096774194,
+    "stem": "chords",
+    "filter_hz": 950,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 69.6774193548387
+  },
+  {
+    "time": 69.91935483870967,
+    "stem": "chords",
+    "filter_hz": 1000,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 77.41935483870967
+  },
+  {
+    "time": 73.79032258064515,
+    "stem": "chords",
+    "filter_hz": 1100,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 77.41935483870967
+  },
+  {
+    "time": 77.66129032258063,
+    "stem": "chords",
+    "filter_hz": 1300,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 79.35483870967742
+  },
+  {
+    "time": 81.53225806451613,
+    "stem": "chords",
+    "filter_hz": 750,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 87.09677419354838
+  },
+  {
+    "time": 85.40322580645162,
+    "stem": "chords",
+    "filter_hz": 750,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 87.09677419354838
+  },
+  {
+    "time": 89.27419354838709,
+    "stem": "chords",
+    "filter_hz": 750,
+    "echo_delays_beats": [
+      0,
+      0.75,
+      1.5,
+      2.25
+    ],
+    "echo_gain_ratio": 0.57,
+    "echo_filter_loss_hz": 220,
+    "echo_boundary": 90.0
+  },
+  {
+    "processor": "kick ducking",
+    "kick_onsets_seconds": [
+      7.741935483870968,
+      8.225806451612904,
+      8.70967741935484,
+      9.193548387096774,
+      9.67741935483871,
+      10.161290322580646,
+      10.64516129032258,
+      11.129032258064516,
+      11.612903225806452,
+      12.096774193548388,
+      12.580645161290324,
+      13.064516129032258,
+      13.548387096774194,
+      14.03225806451613,
+      14.516129032258064,
+      15.0,
+      15.483870967741936,
+      15.967741935483872,
+      16.451612903225808,
+      16.935483870967744,
+      17.41935483870968,
+      17.903225806451616,
+      18.38709677419355,
+      18.870967741935488,
+      19.35483870967742,
+      19.838709677419356,
+      20.322580645161292,
+      20.806451612903228,
+      21.29032258064516,
+      21.774193548387096,
+      22.258064516129032,
+      22.741935483870968,
+      23.225806451612904,
+      23.70967741935484,
+      24.193548387096776,
+      24.67741935483871,
+      25.161290322580648,
+      25.645161290322584,
+      26.12903225806452,
+      26.612903225806456,
+      27.096774193548388,
+      27.580645161290324,
+      28.06451612903226,
+      28.548387096774196,
+      29.032258064516128,
+      29.516129032258064,
+      30.0,
+      30.483870967741936,
+      30.967741935483872,
+      31.451612903225808,
+      31.935483870967744,
+      32.41935483870968,
+      32.903225806451616,
+      33.38709677419355,
+      33.87096774193549,
+      34.35483870967742,
+      34.83870967741936,
+      35.322580645161295,
+      35.80645161290323,
+      36.29032258064517,
+      36.774193548387096,
+      37.25806451612903,
+      37.74193548387097,
+      38.225806451612904,
+      38.70967741935484,
+      39.193548387096776,
+      39.67741935483871,
+      40.16129032258065,
+      40.645161290322584,
+      41.12903225806452,
+      41.612903225806456,
+      42.09677419354839,
+      56.12903225806452,
+      56.612903225806456,
+      57.09677419354839,
+      57.58064516129033,
+      58.06451612903226,
+      58.5483870967742,
+      59.032258064516135,
+      59.51612903225807,
+      60.0,
+      60.483870967741936,
+      60.96774193548387,
+      61.45161290322581,
+      61.935483870967744,
+      62.41935483870968,
+      62.903225806451616,
+      63.38709677419355,
+      63.87096774193549,
+      64.35483870967742,
+      64.83870967741936,
+      65.3225806451613,
+      65.80645161290323,
+      66.29032258064517,
+      66.7741935483871,
+      67.25806451612904,
+      67.74193548387098,
+      68.22580645161291,
+      68.70967741935485,
+      69.19354838709678,
+      69.6774193548387,
+      70.16129032258064,
+      70.64516129032258,
+      71.12903225806451,
+      71.61290322580645,
+      72.09677419354838,
+      72.58064516129032,
+      73.06451612903226,
+      73.54838709677419,
+      74.03225806451613,
+      74.51612903225806,
+      75.0,
+      75.48387096774194,
+      75.96774193548387,
+      76.45161290322581,
+      76.93548387096774,
+      77.41935483870967,
+      77.9032258064516,
+      78.38709677419354,
+      78.87096774193547
+    ],
+    "depth": 0.39,
+    "recovery_seconds": 0.23,
+    "attack_seconds": 0.003,
+    "stem_depth_multipliers": {
+      "bass": 1,
+      "chords": 0.75,
+      "keys": 0.48,
+      "pad": 0.55
+    }
+  }
+]

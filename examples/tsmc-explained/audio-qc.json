@@ -10,22 +10,22 @@
     "samples": 4320000,
     "integrated_lufs": -16.0,
     "true_peak_dbfs": -2.0,
-    "loudness_range_lu": 3.8
+    "loudness_range_lu": 5.3
   },
   "aac": {
     "file": "tsmc-explained.m4a",
     "decoded_seconds": 90.00533,
     "integrated_lufs": -16.0,
-    "true_peak_dbfs": -1.7,
-    "loudness_range_lu": 3.8
+    "true_peak_dbfs": -1.9,
+    "loudness_range_lu": 5.3
   },
   "full_decode_errors": 0,
-  "mono_fold_down_db": -0.881,
+  "mono_fold_down_db": -0.388,
   "ending_rms_last_50ms": 0.0,
   "unexpected_near_silent_seconds": [],
-  "bpm": 120.0,
-  "key": "E minor",
+  "bpm": 124.0,
+  "key": "D minor",
   "unexpected_chord_conflicts": 0,
-  "aac_sha256": "14474e6e8b8fc3d192a6ce2e0b1573c63c2d114478ed611883c5a4a4078b97d4",
+  "aac_sha256": "14d744fbd81a10d2cc9a154874370d7b3a7b7020e5458a3e565354107f29c949",
   "limits": "Objective QC does not certify listening quality."
 }

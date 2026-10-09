@@ -37,6 +37,7 @@ class SiliconFilm(Film):
         c.drawCircle(0,8,r+6,paint(fg,.12))
         c.drawCircle(0,0,r,paint(fg,.045))
         c.drawCircle(0,0,r,paint(fg,.7,2))
+        c.drawCircle(0,0,r+12,paint(accent,.06+self.pulse_at(t)*.30,1.5))
         c.save();c.clipPath(skia.Path.Circle(0,0,r-7))
         spacing=49
         for row in range(-7,8):
@@ -66,7 +67,7 @@ class SiliconFilm(Film):
                 if distance<=length:
                     u=distance/length
                     x,y=a[0]+(b[0]-a[0])*u,a[1]+(b[1]-a[1])*u
-                    c.drawCircle(x,y,4.5,paint(accent,.85));break
+                    c.drawCircle(x,y,4.5+self.pulse_at(t)*2.5,paint(accent,.85));break
                 distance-=length
 
     def foundry(self,c,t,u,fg,accent):
