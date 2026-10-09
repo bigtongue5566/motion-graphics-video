@@ -24,10 +24,19 @@ def soften(sound, attack=.008, release=.075):
     return sound
 
 
+def release_shape(sound, gate, attack, release):
+    """MIDI note-off begins release; it does not terminate the waveform."""
+    sound = np.array(sound, np.float32, copy=True)
+    t = np.arange(len(sound))/SR
+    envelope = np.sin(np.clip(t/max(attack,1/SR),0,1)*math.pi/2)**2
+    envelope *= np.cos(np.clip((t-gate)/release,0,1)*math.pi/2)**2
+    return sound*envelope
+
+
 @lru_cache(maxsize=256)
 def pluck(note, duration, brightness=2100.):
     """Band-limited, softly filtered saw/triangle pluck; no metallic FM."""
-    t = np.arange(round(duration * SR), dtype=np.float64) / SR
+    t = np.arange(round((duration + 0.24) * SR), dtype=np.float64) / SR
     f = hz(note)
     env = (1 - np.exp(-t * 220)) * np.exp(-t * 5.0)
     sig = np.zeros_like(t)
@@ -36,13 +45,13 @@ def pluck(note, duration, brightness=2100.):
         harmonic_filter = 1 / math.sqrt(1 + (h * f / brightness) ** 6)
         coeff = harmonic_filter / h ** 1.45
         sig += coeff * np.sin(2 * math.pi * f * h * t + .18 * h) * np.exp(-t * .12 * h)
-    return soften(sig * env * .54, .006, .065)
+    return release_shape(sig * env * .54, duration, .006, 0.24)
 
 
 @lru_cache(maxsize=256)
 def chord_voice(note, duration=.31, bright=False):
     """Gentle stereo detuning, tightly voiced chords, rounded attack."""
-    t = np.arange(round(duration * SR), dtype=np.float64) / SR
+    t = np.arange(round((duration + 0.22) * SR), dtype=np.float64) / SR
     f = hz(note)
     stereo = np.zeros((len(t), 2), dtype=np.float64)
     cutoff = 2300. if bright else 1250.
@@ -54,31 +63,31 @@ def chord_voice(note, duration=.31, bright=False):
             stereo[:, channel] += coeff * np.sin(2 * math.pi * f * detune * h * t + h * .43)
     stereo *= env[:, None] * .26
     for c in range(2):
-        stereo[:, c] = soften(stereo[:, c], .015, .09)
+        stereo[:, c] = release_shape(stereo[:, c], duration, .015, 0.22)
     return stereo.astype(np.float32)
 
 
 @lru_cache(maxsize=80)
 def pad_voice(note, duration):
-    t = np.arange(round(duration * SR), dtype=np.float64) / SR
+    t = np.arange(round((duration + 0.3) * SR), dtype=np.float64) / SR
     stereo = np.zeros((len(t), 2), dtype=np.float64)
     f = hz(note)
     for channel, cents in [(0, -2.5), (1, 2.5)]:
         for h, strength in [(1, .58), (2, .17), (3, .07), (4, .028)]:
             stereo[:, channel] += strength * np.sin(2 * math.pi * f * 2 ** (cents / 1200.) * h * t + h * .25)
-        stereo[:, channel] = soften(stereo[:, channel], min(.35, duration / 4), min(.24, duration / 4))
+        stereo[:, channel] = release_shape(stereo[:, channel], duration, min(.16, duration / 4), 0.3)
     stereo *= (.93 + .07 * np.sin(2 * math.pi * .18 * t))[:, None]
     return stereo.astype(np.float32)
 
 
 @lru_cache(maxsize=96)
 def bass_note(note, duration):
-    t = np.arange(round(duration * SR), dtype=np.float64) / SR
+    t = np.arange(round((duration + 0.12) * SR), dtype=np.float64) / SR
     f = hz(note)
     sig = .78 * np.sin(2 * math.pi * f * t)
     sig += .22 * np.sin(2 * math.pi * 2 * f * t) + .07 * np.sin(2 * math.pi * 3 * f * t)
     sig *= (1 - np.exp(-t * 180)) * np.exp(-t * 1.65)
-    return soften(sig * .58, .008, .065)
+    return release_shape(sig * .58, duration, .008, 0.12)
 
 
 def kick():

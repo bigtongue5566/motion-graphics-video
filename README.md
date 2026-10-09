@@ -167,6 +167,12 @@ Both completed the animation, score, mastering, muxing, and encoded-media checks
 Signal measurements and chord-note checks help find production errors. Listening
 and visual review remain necessary to assess musical and design quality.
 
+The [audio continuity guide](references/audio-continuity.md) covers MIDI gates versus
+release tails, shared-note ties, legato articulation and 10ms gap diagnostics.
+The standalone video starter now includes the repaired renderer and helpers.
+Pad ties and room are opt-in. The guide also covers harsh timbres,
+primary/echo beat placement and verifying picture cues in the final MP4.
+
 ## License
 
 The code, original vector primitives, synthesis code, and skill documentation in

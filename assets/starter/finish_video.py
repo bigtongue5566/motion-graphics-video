@@ -107,6 +107,9 @@ class Finisher:
         if tail_rms > .01:
             raise ValueError("Ending is not sufficiently faded; inspect the final notes")
 
+        from continuity import micro_dynamics
+        sections = cfg.get("sections") or [{"start":s["start"],"end":s["end"],"role":s["music_role"]} for s in cfg["scenes"]]
+        micro = micro_dynamics(audio, 48000, sections)
         folder = self.work / "qc"
         folder.mkdir(exist_ok=True)
         samples = [(s["start"] + (s["end"] - s["start"]) * .58) for s in cfg["scenes"]]
@@ -129,7 +132,7 @@ class Finisher:
                    "height": metadata["size"][1], "fps": metadata["fps"], "decoded_frames": int(frames[-1]), "decode_errors": 0,
                    "audio_codec": "aac", "audio_sample_rate": 48000, "audio_channels": 2,
                    "decoded_audio_seconds": round(len(audio) / 48000, 5), "integrated_loudness_lufs": loudness,
-                   "true_peak_dbfs": peak, "mono_fold_down_db": round(float(mono_loss), 3),
+                   "true_peak_dbfs": peak, "mono_fold_down_db": round(float(mono_loss), 3), "micro_dynamics": micro,
                    "ending_rms_last_50ms": round(tail_rms, 6), "visual_samples_exported": len(samples),
                    "limits": "Signal checks and exported frames do not certify subjective music or design quality."}
         (self.out / f"{cfg['slug']}-qc.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")

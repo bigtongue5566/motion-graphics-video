@@ -19,7 +19,7 @@ description: "Create and revise finished branded motion-graphics films with rese
 
 把可查證的優勢轉成簡短敘事。每個章節應有主訊息與支持它的圖形動作，例如能量沿路徑移動、模組組裝、網絡連結、數據形成。維持文字可讀的停留時間，使用前後景、節奏與場景變化建立層次。
 
-分鏡與音樂共用一份時間表。先檢查分鏡圖、代表影格及短片段，再完成全片。品牌研究、畫面設計與來源格式見 [references/visual-production.md](references/visual-production.md)。
+分鏡與音樂共用一份時間表；另把標題入場、組裝完成、數字定格等重要動作寫入 cue map，由 renderer 與 composer 共用，並核對最終影格與音訊 onset。先檢查分鏡圖、代表影格及短片段，再完成全片。品牌研究、畫面設計與來源格式見 [references/visual-production.md](references/visual-production.md)。
 
 ## EDM 配樂
 
@@ -32,6 +32,10 @@ description: "Create and revise finished branded motion-graphics films with rese
 使用合適的樂器音色或清楚控制泛音的合成器。真實鋼琴可用相容的 SoundFont／取樣樂器演奏；不要把簡單振盪器描述成真實鋼琴。提供音樂、音色庫及素材來源；音符原創與音色取樣是不同層次的來源。
 
 音訊響度、峰值或音符檢查不能證明好聽。實際檢查開場、和弦銜接、完整節奏段、間奏與片尾；沒有可聽音訊的能力時，清楚區分已做的客觀檢查，提供可播放的配樂，不聲稱已試聽。使用者指出不和諧時，從和聲、旋律、尾音、聲部和音色查原因，再修改成品。詳細編曲與混音方法見 [references/edm-production.md](references/edm-production.md)。
+
+使用者指出刺耳、拍點模糊或畫面不同步時，從被指出的秒數 solo 問題聲部，核對實際音源、音域、泛音、力度、主擊／回聲層級與重要動作 cue，並交付含畫面的短片段比較；保留使用者偏好的疏密。方法見 [references/audio-continuity.md](references/audio-continuity.md)。
+
+「每一拍斷掉」時，檢查 MIDI gate 是否裁掉實際 release、共同音是否逐小節重啟，以及 gate／側鏈是否一起抽空所有聲部；依 [references/audio-continuity.md](references/audio-continuity.md) 修正。用同段、相近響度的短片段比較，並以短時間窗檢查拍間空隙；不要把一秒平均音量或和弦音符檢查當作連貫性的證明。
 
 ## 可執行的製作範本
 

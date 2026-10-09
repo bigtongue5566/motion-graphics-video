@@ -66,26 +66,39 @@ class Score:
             self.stems[stem][k:k + count] += sound[:count] * gain
 
     def note(self, stem, time, length, pitch, gain, pan=0., velocity=80, sound=None, boundary=None):
+        from continuity import tail_end
         end = self.duration if boundary is None else min(self.duration, boundary)
-        length = min(length, end - time)
-        if length < .009:
+        gate = min(length, end - time)
+        if gate < .009:
             return
         if not 0 <= pitch <= 127:
             raise ValueError("Transposition moved a note outside MIDI range")
-        self.events.append({"stem": stem, "time": time, "duration": length, "note": pitch, "velocity": velocity})
+        event = {"stem":stem,"time":time,"duration":gate,"note":pitch,"velocity":velocity}
+        self.events.append(event)
         if stem == "keys" and self.sf:
             return
         if sound is None:
-            sound = ins.pluck(pitch, length, 1900.)
-        self.add(stem, time, sound[:round(length * self.sr)], gain, pan)
+            sound = ins.pluck(pitch, gate, 1900.)
+        sound = np.asarray(sound, dtype=np.float32)
+        desired = min(self.duration, time + len(sound)/self.sr)
+        audible_end = tail_end(self.harmony, pitch, time+gate, desired)
+        count = max(0, round((audible_end-time)*self.sr))
+        rendered = sound[:count]
+        if count < len(sound):
+            if rendered.ndim == 1:
+                rendered = ins.soften(rendered, .002, min(.025, len(rendered)/self.sr/3))
+            else:
+                rendered = np.column_stack([ins.soften(rendered[:,c], .002, min(.025, len(rendered)/self.sr/3)) for c in range(2)])
+        event["sounding_duration"] = len(rendered)/self.sr
+        self.add(stem, time, rendered, gain, pan)
 
     def keys(self, pitch, length):
-        t = np.arange(round(length * self.sr), dtype=np.float64) / self.sr
+        t = np.arange(round((length + .25) * self.sr), dtype=np.float64) / self.sr
         f = ins.hz(pitch)
         sound = np.zeros_like(t)
         for partial, amplitude, decay in [(1, .75, 2.), (2, .18, 3.5), (3, .065, 5.), (4, .025, 8.)]:
             sound += amplitude * np.sin(2 * math.pi * f * partial * t) * np.exp(-t * decay)
-        return ins.soften(sound, .005, min(.12, length / 3))
+        return ins.release_shape(sound, length, .005, .25)
 
     def arrange(self):
         kick, clap, hat, opened = ins.kick(), ins.clap(), ins.hat(), ins.hat(True)
@@ -187,10 +200,6 @@ class Score:
                 for start, priority, type_ in [(event["time"], 2, "note_on"), (event["time"] + event["duration"], 0, "note_off")]:
                     message = mido.Message(type_, channel=channel, note=event["note"], velocity=event["velocity"] if type_ == "note_on" else 0)
                     queue.append((round(start / self.beat * 480), priority, message))
-            if name == "keys":
-                for chord in self.harmony[1:]:
-                    queue.append((round(chord["start"] / self.beat * 480), 1,
-                                  mido.Message("control_change", channel=channel, control=120, value=0)))
             previous = 0
             for tick, _, message in sorted(queue, key=lambda item: (item[0], item[1])):
                 message.time = tick - previous
@@ -222,11 +231,8 @@ class Score:
             sound = sound.astype(np.float32) / np.iinfo(sound.dtype).max()
         count = min(len(sound), self.n)
         self.stems["keys"][:count] = sound[:count] * 2.5
-        for chord in self.harmony[1:]:
-            k, r = round(chord["start"] * self.sr), min(round(.024 * self.sr), round(self.bar * self.sr / 4))
-            self.stems["keys"][k - r:k] *= np.cos(np.linspace(0, math.pi / 2, r))[:, None] ** 2
-            a = min(round(.006 * self.sr), self.n - k)
-            self.stems["keys"][k:k + a] *= np.sin(np.linspace(0, math.pi / 2, a))[:, None] ** 2
+        # Preserve the instrument's own note-off release. A chord boundary
+        # is not a reason to fade the entire sampled-instrument bus.
         self.instrument_source = "FluidSynth piano using " + self.sf.name + "; original electronic synthesis"
 
     def mix(self):
@@ -257,7 +263,7 @@ class Score:
             if event["stem"] == "drums":
                 continue
             for chord in self.harmony:
-                if event["time"] < chord["end"] - 1e-7 and event["time"] + event["duration"] > chord["start"] + 1e-7:
+                if event["time"] < chord["end"] - 1/self.sr and event["time"] + event.get("sounding_duration", event["duration"]) > chord["start"] + 1/self.sr:
                     if event["note"] % 12 not in chord["pcs"]:
                         conflicts.append(event)
         if conflicts:
@@ -281,6 +287,8 @@ if __name__ == "__main__":
     root, cfg = load(args.project)
     score = Score(root, cfg)
     score.arrange()
+    from continuity import apply_continuity
+    apply_continuity(score)
     score.audit()
     score.mix()
     score.write_midi(root / "outputs" / f"{cfg['slug']}-music.mid")
