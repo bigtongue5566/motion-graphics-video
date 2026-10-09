@@ -6,6 +6,27 @@ official logos and colors, synchronized animation, and an original EDM soundtrac
 動態圖形影片製作 Skill：整合品牌研究、分鏡、動畫、EDM 配樂、影音同步與成品檢查。
 Skill instructions and production references are written in Traditional Chinese.
 
+## Sourced company explainer — TSMC
+
+[![台積電｜從設計到矽晶](https://bigtongue5566.github.io/assets/tsmc-explained.jpg)](https://bigtongue5566.github.io/?demo=tsmc-explained)
+
+**[Watch the 90-second film with sound →](https://bigtongue5566.github.io/?demo=tsmc-explained)** ·
+[逐段資料來源](https://bigtongue5566.github.io/?demo=tsmc-explained#references) ·
+[Original soundtrack](https://bigtongue5566.github.io/?demo=tsmc-explained-music) ·
+[Reproducible source](examples/tsmc-explained)
+
+An independent, unofficial introduction to TSMC, with original conceptual wafer,
+transistor and packaging animation and a new 120 BPM E minor electronic score.
+Reported 2025 facts and N2 production timing are linked to official primary sources
+in the film, the player page, [SOURCES.md](examples/tsmc-explained/SOURCES.md),
+and the machine-readable [claim ledger](examples/tsmc-explained/claims.json).
+
+No company logo, corporate photo, official chart, website screenshot, company
+footage or third-party recording is included. The company name identifies the
+subject in ordinary type. This work is not sponsored or endorsed by TSMC.
+Attribution does not grant rights or guarantee against legal claims; see the
+[actual materials and rights record](examples/tsmc-explained/RIGHTS.md).
+
 ## Original demo
 
 [![Form & Frequency — original motion study](https://bigtongue5566.github.io/assets/form-and-frequency.jpg)](https://bigtongue5566.github.io/?demo=form-and-frequency)

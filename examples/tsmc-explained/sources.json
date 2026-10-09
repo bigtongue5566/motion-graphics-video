@@ -1,0 +1,103 @@
+{
+  "title": "台積電｜從設計到矽晶",
+  "created_date": "2026-10-10",
+  "visuals": "New original procedural wafer, circuit, foundry, nanosheet and packaging concepts. No company logos, official illustrations, photos, footage or website screenshots are incorporated.",
+  "music": "New original 120 BPM E minor electronic composition and synthesis; no third-party recordings or sampled music.",
+  "source_code_origin": "MIT-licensed edm-music-production starter by bigtongue5566, adapted for this film.",
+  "external_assets": [
+    {
+      "file": "NotoSansCJKtc-Medium.otf",
+      "url": "https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/TraditionalChinese/NotoSansCJKtc-Medium.otf",
+      "sha256": "2905dd3de65d7b7de764596e2294978407986f4cc0a66c9584c5b95c5aa9572e",
+      "bytes": 16522152,
+      "license": "OFL-1.1",
+      "source_commit": "f8d157532fbfaeda587e826d4cd5b21a49186f7c",
+      "git_blob_sha1": "c6ec7b6c6b3db6bc9e975b4c4c9c8bac66af19b6"
+    },
+    {
+      "file": "NotoSansCJK-OFL.txt",
+      "url": "https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/LICENSE",
+      "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+      "bytes": 4301,
+      "license": "OFL-1.1",
+      "source_commit": "f8d157532fbfaeda587e826d4cd5b21a49186f7c",
+      "git_blob_sha1": "d952d62c065f3f35fb83a173496e90b21525aef3"
+    },
+    {
+      "file": "SpaceGrotesk.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/51303ca9e8ac9dcea7b12d307ba568fd0e6fcfca/ofl/spacegrotesk/SpaceGrotesk%5Bwght%5D.ttf",
+      "sha256": "acad6de1fc93436f5c0f1f4137751ef04f1aea3063e7036535970ffcfbd79f72",
+      "bytes": 136676,
+      "license": "OFL-1.1",
+      "source_commit": "51303ca9e8ac9dcea7b12d307ba568fd0e6fcfca",
+      "git_blob_sha1": "a1b2e6c26093066510a31147e7aec9abdc8d6c5e"
+    },
+    {
+      "file": "SpaceGrotesk-OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/51303ca9e8ac9dcea7b12d307ba568fd0e6fcfca/ofl/spacegrotesk/OFL.txt",
+      "sha256": "564ce565c371c5e5bbf286006565a7c9aa55a9f56e7ca58d56e05d649dd61a72",
+      "bytes": 4495,
+      "license": "OFL-1.1",
+      "source_commit": "51303ca9e8ac9dcea7b12d307ba568fd0e6fcfca",
+      "git_blob_sha1": "cb512b9af44ff61e75e1aad387b7424cdfab36a3"
+    }
+  ],
+  "font_use_reference": "https://openfontlicense.org/ofl-faq/",
+  "scope": "Independent, unofficial educational company explainer. Facts are paraphrased and attributed; company names identify the subject.",
+  "rights_note": "Attribution records provenance. It does not grant permission to use third-party material or eliminate legal risk.",
+  "company_sources": [
+    {
+      "id": "S1",
+      "title": "台積電官方公司介紹",
+      "publisher": "台灣積體電路製造股份有限公司",
+      "url": "https://www.tsmc.com/chinese/aboutTSMC/company_profile",
+      "published_date": null,
+      "data_year": 2025,
+      "checked_date": "2026-10-10",
+      "locator": "公司介紹正文，第一段",
+      "role": "公司沿革、商業模式與終端應用"
+    },
+    {
+      "id": "S2",
+      "title": "TSMC 2025 Annual Report",
+      "publisher": "台灣積體電路製造股份有限公司",
+      "url": "https://investor.tsmc.com/static/annualReports/2025/english/index.html",
+      "published_date": null,
+      "data_year": 2025,
+      "checked_date": "2026-10-10",
+      "locator": "Letter to Shareholders / Highlights of TSMC's accomplishments in 2025; About TSMC",
+      "role": "2025 年服務規模及 N2 量產交叉核對"
+    },
+    {
+      "id": "S3",
+      "title": "2nm Technology",
+      "publisher": "台灣積體電路製造股份有限公司",
+      "url": "https://www.tsmc.com/english/dedicatedFoundry/technology/logic/l_2nm",
+      "published_date": null,
+      "checked_date": "2026-10-10",
+      "locator": "2nm Technology 正文",
+      "event_date": "2025-Q4",
+      "role": "N2 量產時間及 nanosheet 電晶體技術"
+    },
+    {
+      "id": "S4",
+      "title": "CoWoS advanced packaging",
+      "publisher": "台灣積體電路製造股份有限公司",
+      "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm",
+      "published_date": null,
+      "checked_date": "2026-10-10",
+      "locator": "正文首段及 CoWoS-S 說明",
+      "role": "運算晶片與高頻寬記憶體整合概念"
+    },
+    {
+      "id": "R1",
+      "title": "Legal Notice and Trademark Information",
+      "publisher": "台灣積體電路製造股份有限公司",
+      "url": "https://www.tsmc.com/english/legal_and_trademark",
+      "published_date": null,
+      "checked_date": "2026-10-10",
+      "locator": "Restrictions on Use of Content; Trademarks and Service Marks",
+      "role": "素材與商標限制的參考；不是本片的素材使用授權"
+    }
+  ]
+}

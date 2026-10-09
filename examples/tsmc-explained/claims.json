@@ -1,0 +1,121 @@
+{
+  "checked_date": "2026-10-10",
+  "claims": [
+    {
+      "id": "C1",
+      "time": "00:08–00:20",
+      "claim": "台積電於 1987 年成立；專注於製造客戶設計的晶片。",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "event_year": 1987
+    },
+    {
+      "id": "C2",
+      "time": "00:20–00:32",
+      "claim": "台積電提供專業晶圓代工；設計、製造與終端應用是本片自行繪製的概念流程。",
+      "sources": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "C3",
+      "time": "00:32–00:44",
+      "claim": "2025 年：305 種製程技術、534 個客戶、12,682 種不同產品。",
+      "sources": [
+        "S2",
+        "S1"
+      ],
+      "data_year": 2025,
+      "units": {
+        "technologies": 305,
+        "customers": 534,
+        "products": 12682
+      }
+    },
+    {
+      "id": "C4",
+      "time": "00:44–00:58",
+      "claim": "依台積電公告，N2 於 2025 年第四季開始量產，並使用 nanosheet 電晶體技術。",
+      "sources": [
+        "S3",
+        "S2"
+      ],
+      "event_date": "2025-Q4"
+    },
+    {
+      "id": "C5",
+      "time": "00:58–01:10",
+      "claim": "台積電的先進封裝技術可整合運算晶片與高頻寬記憶體；動畫為概念示意，不呈現實際產品結構。",
+      "sources": [
+        "S4"
+      ]
+    },
+    {
+      "id": "C6",
+      "time": "01:10–01:20",
+      "claim": "終端應用包括高效能運算、智慧型手機、物聯網、車用及消費性電子。",
+      "sources": [
+        "S1",
+        "S2"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "台積電官方公司介紹",
+      "publisher": "台灣積體電路製造股份有限公司",
+      "url": "https://www.tsmc.com/chinese/aboutTSMC/company_profile",
+      "published_date": null,
+      "data_year": 2025,
+      "checked_date": "2026-10-10",
+      "locator": "公司介紹正文，第一段",
+      "role": "公司沿革、商業模式與終端應用"
+    },
+    {
+      "id": "S2",
+      "title": "TSMC 2025 Annual Report",
+      "publisher": "台灣積體電路製造股份有限公司",
+      "url": "https://investor.tsmc.com/static/annualReports/2025/english/index.html",
+      "published_date": null,
+      "data_year": 2025,
+      "checked_date": "2026-10-10",
+      "locator": "Letter to Shareholders / Highlights of TSMC's accomplishments in 2025; About TSMC",
+      "role": "2025 年服務規模及 N2 量產交叉核對"
+    },
+    {
+      "id": "S3",
+      "title": "2nm Technology",
+      "publisher": "台灣積體電路製造股份有限公司",
+      "url": "https://www.tsmc.com/english/dedicatedFoundry/technology/logic/l_2nm",
+      "published_date": null,
+      "checked_date": "2026-10-10",
+      "locator": "2nm Technology 正文",
+      "event_date": "2025-Q4",
+      "role": "N2 量產時間及 nanosheet 電晶體技術"
+    },
+    {
+      "id": "S4",
+      "title": "CoWoS advanced packaging",
+      "publisher": "台灣積體電路製造股份有限公司",
+      "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm",
+      "published_date": null,
+      "checked_date": "2026-10-10",
+      "locator": "正文首段及 CoWoS-S 說明",
+      "role": "運算晶片與高頻寬記憶體整合概念"
+    },
+    {
+      "id": "R1",
+      "title": "Legal Notice and Trademark Information",
+      "publisher": "台灣積體電路製造股份有限公司",
+      "url": "https://www.tsmc.com/english/legal_and_trademark",
+      "published_date": null,
+      "checked_date": "2026-10-10",
+      "locator": "Restrictions on Use of Content; Trademarks and Service Marks",
+      "role": "素材與商標限制的參考；不是本片的素材使用授權"
+    }
+  ]
+}

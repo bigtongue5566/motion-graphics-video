@@ -1,0 +1,25 @@
+{
+  "status": "FINAL_MP4_VERIFIED",
+  "file": "tsmc-explained-90s.mp4",
+  "duration_seconds": 90.0,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "fully_decoded_video_frames": 2700,
+  "audio_sample_rate": 48000,
+  "audio_channels": 2,
+  "audio_decoded_seconds": 90.00533,
+  "integrated_lufs": -16.0,
+  "true_peak_dbtp": -1.7,
+  "full_decode_errors": 0,
+  "sampled_encoded_frames": 13,
+  "geometry_motion_difference": {
+    "intro_motion": 3.023,
+    "packaging_assembly": 7.192
+  },
+  "music_bpm": 120.0,
+  "music_key": "E minor",
+  "mp4_bytes": 9777830,
+  "mp4_sha256": "b56622096f0acb003863317649fb08c3a279cbbe4c75beb390eb89890aa99908",
+  "limits": "Objective verification does not certify subjective listening quality."
+}

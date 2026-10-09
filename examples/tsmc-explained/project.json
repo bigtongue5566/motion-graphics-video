@@ -1,0 +1,246 @@
+{
+  "slug": "tsmc-explained",
+  "name": "台積電｜從設計到矽晶",
+  "duration": 90.0,
+  "music": {
+    "bpm": 120.0,
+    "key": "E minor",
+    "progression": [
+      "i",
+      "VI",
+      "III",
+      "VII"
+    ],
+    "seed": 20261013,
+    "style": "Melodic House / Technology",
+    "arrangement": "silicon",
+    "lufs": -16.0,
+    "true_peak": -2.0,
+    "export_stems": false,
+    "soundfont": null,
+    "fluidsynth": null,
+    "soundfont_source": null,
+    "license": null
+  },
+  "sections": [
+    {
+      "start": 0,
+      "end": 8,
+      "role": "intro",
+      "label": "從設計到矽晶"
+    },
+    {
+      "start": 8,
+      "end": 20,
+      "role": "groove",
+      "label": "一種專注的分工"
+    },
+    {
+      "start": 20,
+      "end": 32,
+      "role": "build",
+      "label": "專業晶圓代工"
+    },
+    {
+      "start": 32,
+      "end": 44,
+      "role": "drop",
+      "label": "服務的廣度"
+    },
+    {
+      "start": 44,
+      "end": 58,
+      "role": "break",
+      "label": "製程持續演進"
+    },
+    {
+      "start": 58,
+      "end": 70,
+      "role": "drop",
+      "label": "先進封裝"
+    },
+    {
+      "start": 70,
+      "end": 80,
+      "role": "groove",
+      "label": "不同的應用"
+    },
+    {
+      "start": 80,
+      "end": 90,
+      "role": "outro",
+      "label": "非官方・獨立介紹"
+    }
+  ],
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "palette": {
+      "background": "#10151B",
+      "accent": "#E95B55",
+      "second": "#B9D5D5",
+      "text": "#F3F0E9"
+    },
+    "fonts": {
+      "cn": "work/assets/NotoSansCJKtc-Medium.otf",
+      "en": "work/assets/SpaceGrotesk.ttf"
+    },
+    "scenes": [
+      {
+        "start": 0,
+        "end": 8,
+        "kind": "opening",
+        "headline": "台積電",
+        "caption": "從設計到矽晶",
+        "body": "一次看懂晶圓代工。",
+        "sources": [
+          "S1"
+        ]
+      },
+      {
+        "start": 8,
+        "end": 20,
+        "kind": "foundation",
+        "headline": "1987",
+        "caption": "一種專注的分工",
+        "body": "在台灣成立，專注製造客戶設計的晶片。",
+        "sources": [
+          "S1",
+          "S2"
+        ]
+      },
+      {
+        "start": 20,
+        "end": 32,
+        "kind": "foundry",
+        "headline": "把設計\n做成晶片",
+        "caption": "專業晶圓代工",
+        "body": "客戶的設計，透過製程與製造走向應用。",
+        "sources": [
+          "S1",
+          "S2"
+        ]
+      },
+      {
+        "start": 32,
+        "end": 44,
+        "kind": "scale",
+        "headline": "2025 年",
+        "caption": "服務的廣度",
+        "body": "305 種製程技術，534 個客戶，12,682 種產品。",
+        "sources": [
+          "S2"
+        ]
+      },
+      {
+        "start": 44,
+        "end": 58,
+        "kind": "nanosheet",
+        "headline": "N2",
+        "caption": "製程持續演進",
+        "body": "台積電表示：N2 已於 2025 年第四季開始量產。",
+        "sources": [
+          "S3",
+          "S2"
+        ]
+      },
+      {
+        "start": 58,
+        "end": 70,
+        "kind": "packaging",
+        "headline": "連接更多\n運算能力",
+        "caption": "先進封裝",
+        "body": "以封裝整合運算晶片與高頻寬記憶體。",
+        "sources": [
+          "S4"
+        ]
+      },
+      {
+        "start": 70,
+        "end": 80,
+        "kind": "applications",
+        "headline": "從運算\n走進生活",
+        "caption": "不同的應用",
+        "body": "高效能運算、手機、物聯網、車用與消費性電子。",
+        "sources": [
+          "S1",
+          "S2"
+        ]
+      },
+      {
+        "start": 80,
+        "end": 90,
+        "kind": "sources",
+        "headline": "用來源\n理解台積電",
+        "caption": "非官方・獨立介紹",
+        "body": "完整來源、逐段對照及素材授權，見展示頁。",
+        "sources": [
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ]
+      }
+    ]
+  },
+  "editorial": {
+    "checked_date": "2026-10-10",
+    "notice": "非官方介紹・圖形為概念示意",
+    "sources": [
+      {
+        "id": "S1",
+        "title": "台積電官方公司介紹",
+        "publisher": "台灣積體電路製造股份有限公司",
+        "url": "https://www.tsmc.com/chinese/aboutTSMC/company_profile",
+        "published_date": null,
+        "data_year": 2025,
+        "checked_date": "2026-10-10",
+        "locator": "公司介紹正文，第一段",
+        "role": "公司沿革、商業模式與終端應用"
+      },
+      {
+        "id": "S2",
+        "title": "TSMC 2025 Annual Report",
+        "publisher": "台灣積體電路製造股份有限公司",
+        "url": "https://investor.tsmc.com/static/annualReports/2025/english/index.html",
+        "published_date": null,
+        "data_year": 2025,
+        "checked_date": "2026-10-10",
+        "locator": "Letter to Shareholders / Highlights of TSMC's accomplishments in 2025; About TSMC",
+        "role": "2025 年服務規模及 N2 量產交叉核對"
+      },
+      {
+        "id": "S3",
+        "title": "2nm Technology",
+        "publisher": "台灣積體電路製造股份有限公司",
+        "url": "https://www.tsmc.com/english/dedicatedFoundry/technology/logic/l_2nm",
+        "published_date": null,
+        "checked_date": "2026-10-10",
+        "locator": "2nm Technology 正文",
+        "event_date": "2025-Q4",
+        "role": "N2 量產時間及 nanosheet 電晶體技術"
+      },
+      {
+        "id": "S4",
+        "title": "CoWoS advanced packaging",
+        "publisher": "台灣積體電路製造股份有限公司",
+        "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm",
+        "published_date": null,
+        "checked_date": "2026-10-10",
+        "locator": "正文首段及 CoWoS-S 說明",
+        "role": "運算晶片與高頻寬記憶體整合概念"
+      },
+      {
+        "id": "R1",
+        "title": "Legal Notice and Trademark Information",
+        "publisher": "台灣積體電路製造股份有限公司",
+        "url": "https://www.tsmc.com/english/legal_and_trademark",
+        "published_date": null,
+        "checked_date": "2026-10-10",
+        "locator": "Restrictions on Use of Content; Trademarks and Service Marks",
+        "role": "素材與商標限制的參考；不是本片的素材使用授權"
+      }
+    ]
+  }
+}
