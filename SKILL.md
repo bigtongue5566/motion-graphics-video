@@ -21,6 +21,8 @@ description: "Create and revise finished branded motion-graphics films with rese
 
 分鏡與音樂共用一份時間表；另把標題入場、組裝完成、數字定格等重要動作寫入 cue map，由 renderer 與 composer 共用，並核對最終影格與音訊 onset。先檢查分鏡圖、代表影格及短片段，再完成全片。品牌研究、畫面設計與來源格式見 [references/visual-production.md](references/visual-production.md)。
 
+製作新聞／事件年表、增加短片資訊密度，或使用者要求沿用上一版排版時，閱讀 [references/timeline-and-revisions.md](references/timeline-and-revisions.md)。用日期、可讀時間與內容動作安排事件；修改應保留已獲偏好的視覺骨架。片尾 CTA 是內容選擇，不是必備場景。
+
 ## EDM 配樂
 
 依題材與使用者偏好先決定配樂的鼓型、主導音色、低音、樂句與段落，再同步畫面。科技與企業影片可以採用多種電子音樂方向，不能每次都套用同一個四拍鼓／pluck 範本。連續製作時比較前次配樂，依本案實際改寫聲部；只換 BPM、調性與曲名不會建立不同的聲音身份。
@@ -36,6 +38,8 @@ description: "Create and revise finished branded motion-graphics films with rese
 音訊響度、峰值或音符檢查不能證明好聽。實際檢查開場、和弦銜接、完整節奏段、間奏與片尾；沒有可聽音訊的能力時，清楚區分已做的客觀檢查，提供可播放的配樂，不聲稱已試聽。使用者指出不和諧時，從和聲、旋律、尾音、聲部和音色查原因，再修改成品。詳細編曲與混音方法見 [references/edm-production.md](references/edm-production.md)。
 
 使用者指出刺耳、拍點模糊或畫面不同步時，從被指出的秒數 solo 問題聲部，核對實際音源、音域、泛音、力度、主擊／回聲層級與重要動作 cue，並交付含畫面的短片段比較；保留使用者偏好的疏密。方法見 [references/audio-continuity.md](references/audio-continuity.md)。
+
+配樂反覆被指出單調或仍有不喜歡的音色時，依 [references/edm-production.md](references/edm-production.md) 的修改流程處理主題、聲部和音源；不要只提高 BPM、調低音量或改音色名稱。
 
 「每一拍斷掉」時，檢查 MIDI gate 是否裁掉實際 release、共同音是否逐小節重啟，以及 gate／側鏈是否一起抽空所有聲部；依 [references/audio-continuity.md](references/audio-continuity.md) 修正。用同段、相近響度的短片段比較，並以短時間窗檢查拍間空隙；不要把一秒平均音量或和弦音符檢查當作連貫性的證明。
 
