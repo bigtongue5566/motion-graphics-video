@@ -59,6 +59,24 @@ audio starter's three selectable presets. The films follow the new audio and act
 
 ## Starter preview
 
+The [art direction and motion guide](references/art-direction-and-motion.md) adds
+representative-shot development, object-driven transitions, purposeful timing,
+visual review and explicit ending design. [Style recipes](references/style-recipes.md)
+help choose a visual language and tools without treating every technology film as a HUD.
+
+An original, silent [10-second motion study](scripts/render_motion_study.py) exercises
+a focal object, path hand-off, stagger, masked transitions and a settled end frame.
+Using the starter dependencies, run it with:
+
+```text
+uv run --python <venv-python> python scripts/render_motion_study.py --output <empty-study-directory>
+```
+
+It exports an MP4, key frames, a motion filmstrip and deterministic-seek/media checks.
+This is a visual study, not a scored client film or a collection of style presets.
+The source is original; the guidance cites the independently published
+[mg-styles-15](https://github.com/Vincentwei1021/mg-styles-15) as a study reference.
+
 ![Starter storyboard](docs/starter-storyboard.jpg)
 
 The storyboard shows the starter's vector scenes. Its example text illustrates the

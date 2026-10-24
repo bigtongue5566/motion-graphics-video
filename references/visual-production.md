@@ -10,6 +10,8 @@ source ledger 可放在 work/sources.json：每一筆包含 claim、url、publis
 
 ## 視覺品質
 
+新片的構圖、代表鏡頭與動作設計先依 [art-direction-and-motion.md](art-direction-and-motion.md)；下列檢查補充品牌與資訊正確性，不能代替視覺設計。
+
 - 採品牌主色與適量輔色。保持文字對比，LOGO 使用適合背景的官方版本。
 - 採可讀的中文字型，確認真正載入字型而非缺字替代。繁體中文在 Windows 可使用 Microsoft JhengHei；其他平台可指定具備授權的 Noto Sans CJK 等字型檔。
 - 字幕與關鍵字在實際 1080p 影格中檢查，留出安全邊界，避免過密或轉場遮住重點。
