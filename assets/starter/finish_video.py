@@ -1,4 +1,4 @@
-"""Two-pass mastering, chapter mux, and direct encoded-media verification."""
+"""Master a starter mix or import finished music, mux and verify the encoded film."""
 import argparse
 import json
 from pathlib import Path
@@ -10,6 +10,7 @@ import numpy as np
 from PIL import Image
 
 from projectlib import load
+from soundtrack import import_finished, silence_regions
 
 
 class Finisher:
@@ -39,10 +40,13 @@ class Finisher:
             ("measured_thresh", "input_thresh"), ("offset", "target_offset")]) + ":linear=true:print_format=json"
         self.run(["-y", "-i", str(self.work / "score-mix.wav"), "-af", filter_, "-ar", "48000",
                   "-c:a", "pcm_s24le", str(self.work / "score-master.wav")], "mastering.log")
-        self.run(["-y", "-i", str(self.work / "score-master.wav"), "-c:a", "aac", "-b:a", "256k", "-ar", "48000",
-                  "-movflags", "+faststart", "-metadata", "title=" + self.cfg["name"] + " - Original EDM",
-                  str(self.bgm)], "bgm-encoding.log")
+        self.encode_bgm()
         print("MUSIC_MASTERED", flush=True)
+
+    def encode_bgm(self):
+        self.run(["-y", "-i", str(self.work / "score-master.wav"), "-c:a", "aac", "-b:a", "256k", "-ar", "48000",
+                  "-ac", "2", "-movflags", "+faststart", "-metadata", "title=" + self.cfg["name"] + " - Soundtrack",
+                  str(self.bgm)], "bgm-encoding.log")
 
     def mux(self):
         def safe(value):
@@ -98,9 +102,8 @@ class Finisher:
         mono_loss = 10 * np.log10(mono_energy / max(stereo_energy, 1e-12))
         if mono_loss <= -3.5:
             raise ValueError("Excessive phase cancellation in mono")
-        bins = [float(np.sqrt(np.mean(audio[k:k + 48000] ** 2))) for k in range(0, len(audio), 48000)]
-        interior = bins[1:-2] if len(bins) >= 5 else bins[:-1]
-        if interior and min(interior) < .0005:
+        quiet = silence_regions(audio, 48000, cfg["duration"], cfg["music"].get("intentional_silence", []))
+        if any(not region["intentional"] for region in quiet):
             raise ValueError("Unexpected near-silent section; inspect the score")
         tail = audio[-min(len(audio), 2400):]
         tail_rms = float(np.sqrt(np.mean(tail ** 2)))
@@ -108,7 +111,10 @@ class Finisher:
             raise ValueError("Ending is not sufficiently faded; inspect the final notes")
 
         from continuity import micro_dynamics
-        sections = cfg.get("sections") or [{"start":s["start"],"end":s["end"],"role":s["music_role"]} for s in cfg["scenes"]]
+        music = json.loads((self.work / "music-metadata.json").read_text(encoding="utf-8"))
+        sections = music.get("sections") or cfg.get("sections") or [{"start":s["start"],"end":s["end"],"role":s["music_role"]} for s in cfg["scenes"]]
+        if music.get("pulse") == "free":
+            sections = []  # Beat-hole diagnostics do not apply to a free-time score.
         micro = micro_dynamics(audio, 48000, sections)
         folder = self.work / "qc"
         folder.mkdir(exist_ok=True)
@@ -133,12 +139,17 @@ class Finisher:
                    "audio_codec": "aac", "audio_sample_rate": 48000, "audio_channels": 2,
                    "decoded_audio_seconds": round(len(audio) / 48000, 5), "integrated_loudness_lufs": loudness,
                    "true_peak_dbfs": peak, "mono_fold_down_db": round(float(mono_loss), 3), "micro_dynamics": micro,
+                   "near_silent_regions": quiet, "music_pulse": music.get("pulse", "unspecified"),
+                   "audio_processing": "finished-audio-import" if "audio_import" in music else "two-pass-mastering",
                    "ending_rms_last_50ms": round(tail_rms, 6), "visual_samples_exported": len(samples),
                    "limits": "Signal checks and exported frames do not certify subjective music or design quality."}
         (self.out / f"{cfg['slug']}-qc.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
-        music = json.loads((self.work / "music-metadata.json").read_text(encoding="utf-8"))
+        composition = "原創電子配樂" if music.get("original_composition") is True else str(music.get("composition", "來源見音樂紀錄"))
+        timing = ("自由時間；" + str(music.get("tempo_note", "無固定拍點")) if music.get("pulse") == "free"
+                  else (str(music["bpm"]) + " BPM" if music.get("bpm") else "拍速未指定"))
         note = (f"# {cfg['name']}\n\n{cfg['duration']} 秒、{cfg['width']} × {cfg['height']}、{cfg['fps']}fps。\n\n"
-                + f"配樂：原創 EDM，{music['bpm']} BPM，{music['key']}。\n音色來源：{music['instrument_source']}。\n\n"
+                + f"配樂：{composition}；{music.get('style', '曲風見編曲紀錄')}；{timing}；{music.get('key', '調性未指定／不適用')}。\n"
+                + f"音色來源：{music.get('instrument_source', '見配樂來源紀錄')}。\n\n"
                 + f"實際 MP4 解碼 {metrics['decoded_frames']} 影格無錯誤；48kHz AAC 立體聲；"
                 + f"{loudness} LUFS、{peak} dBTP。\n\n"
                 + "畫面樣本位於 work/qc/；需實際檢查品牌、字型、數據與設計。訊號檢查不代表已試聽或判定音樂悅耳。\n"
@@ -147,6 +158,11 @@ class Finisher:
             note += "\n音色庫來源：" + music["soundfont_source"] + "\n"
         if music.get("soundfont_license_file"):
             note += "音色庫授權檔：" + music["soundfont_license_file"] + "\n"
+        if "audio_import" in music:
+            # Ship the full provenance with the deliverable, not just in work/.
+            (self.out / f"{cfg['slug']}-soundtrack-source.json").write_text(
+                json.dumps(music["audio_import"], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            note += "\n使用已完成母帶，未再次正規化響度。轉碼、邊界調整與來源雜湊見配樂來源 JSON。\n"
         ledger = self.work / "sources.json"
         if ledger.exists():
             sources = json.loads(ledger.read_text(encoding="utf-8-sig"))
@@ -169,9 +185,16 @@ class Finisher:
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--project", type=Path, required=True)
+    ap.add_argument("--audio", type=Path, help="Finished soundtrack; skips the starter composer and loudness mastering")
+    ap.add_argument("--audio-metadata", type=Path, help="Companion music-metadata.json/provenance or equivalent rights JSON")
     args = ap.parse_args()
+    if bool(args.audio) != bool(args.audio_metadata):
+        ap.error("--audio and --audio-metadata must be supplied together")
     root, cfg = load(args.project)
     finisher = Finisher(root, cfg)
-    finisher.master()
+    if args.audio:
+        import_finished(finisher, args.audio, args.audio_metadata)
+    else:
+        finisher.master()
     finisher.mux()
     finisher.verify()

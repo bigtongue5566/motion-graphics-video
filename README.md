@@ -1,9 +1,9 @@
 # Motion Graphics Video
 
 A Codex skill for producing branded motion-graphics films with researched facts,
-official logos and colors, synchronized animation, and an original EDM soundtrack.
+official logos and colors, synchronized animation, and original or licensed electronic soundtracks.
 
-動態圖形影片製作 Skill：整合品牌研究、分鏡、動畫、EDM 配樂、影音同步與成品檢查。
+動態圖形影片製作 Skill：整合品牌研究、分鏡、動畫、多風格電子配樂、影音同步與成品檢查。
 Skill instructions and production references are written in Traditional Chinese.
 
 ## Sourced company explainer — TSMC
@@ -55,7 +55,22 @@ The four current films and soundtracks were recomposed and re-rendered on 2026-1
 Future Bass (148 BPM), Drum & Bass (172 BPM), UK Garage (132 BPM), and Minimal Piano House (124 BPM).
 Their source packages retain explicit chord voicings, notes, actual synthesis/automation,
 MIDI and finished-media QC. These custom example implementations are separate from the
-audio starter's three selectable presets. The films follow the new audio and actual kick events.
+companion music skill's selectable starter arrangements. The films follow the new audio and actual kick events.
+
+## Electronic soundtracks beyond EDM
+
+Choose music from the film's narrative and sound references: dance styles, Ambient,
+Downtempo, experimental or hybrid scores can use different rhythms, textures and
+forms. The companion [electronic-music-production](https://github.com/bigtongue5566/electronic-music-production)
+skill handles music development. Import its finished master and provenance with
+`finish_video.py --audio ... --audio-metadata ...`; the video pipeline preserves gain
+and copies the picture stream without running a second loudness master.
+
+For free-time scores, synchronize by seconds, texture and tension changes rather
+than a fabricated beat grid. Intentional rests can be declared for audio QC.
+The included `compose_edm.py` remains a standalone Melodic House starter for existing
+projects; other styles require their own arrangement, not just a new preset label.
+See [electronic soundtrack integration](references/electronic-soundtrack.md).
 
 ## Starter preview
 
@@ -89,7 +104,10 @@ workflow; replace it with researched content for each actual brand.
   metrics, and a brand closing.
 - A configurable melodic-house score with chord-following melodies, bass, drums,
   builds, breaks, chapter accents, and kick-triggered volume ducking.
-- Editable MIDI, independent AAC background music, a mastered WAV, and a final H.264/AAC MP4.
+- An import path for finished electronic scores, with source hashes and original metadata,
+  no second loudness master, and free-time/intentional-rest handling in QC.
+- Independent AAC background music and a final H.264/AAC MP4; the internal composer
+  also produces editable MIDI and a mastered WAV.
 - Direct checks of the encoded movie: duration, frame count, resolution, frame rate,
   audio format, loudness, true peak, mono compatibility, and fading.
 
@@ -112,7 +130,7 @@ Invoke it with a prompt such as:
 
 ```text
 用 $motion-graphics-video 製作一支 90 秒的公司介紹影片，
-採用官方 LOGO 與品牌配色，搭配旋律型 EDM，並查證公司資訊。
+採用官方 LOGO 與品牌配色，搭配適合敘事的電子配樂，並查證公司資訊。
 ```
 
 ## Run the starter directly
@@ -124,9 +142,8 @@ imageio-ffmpeg; a separate system installation is unnecessary.
 From the repository root:
 
 ```powershell
-python -X utf8 scripts/init_project.py --project ../my-brand-film
-uv venv ../my-brand-film/work/.venv --python 3.12
-uv pip install --python ../my-brand-film/work/.venv/Scripts/python.exe -r ../my-brand-film/work/requirements.txt
+uv run --python 3.12 python -X utf8 scripts/init_project.py --project ../my-brand-film
+uv sync --project ../my-brand-film/work
 ```
 
 Edit `../my-brand-film/project.json` to set the brand, official logo paths, colors,
@@ -134,14 +151,31 @@ copy, scenes, timing, and music. Add the relevant source records to
 `../my-brand-film/work/sources.json`.
 
 ```powershell
-../my-brand-film/work/.venv/Scripts/python.exe -X utf8 ../my-brand-film/work/render_video.py preview --project ../my-brand-film
-../my-brand-film/work/.venv/Scripts/python.exe -X utf8 ../my-brand-film/work/compose_edm.py --project ../my-brand-film
-../my-brand-film/work/.venv/Scripts/python.exe -X utf8 ../my-brand-film/work/render_video.py render --project ../my-brand-film
-../my-brand-film/work/.venv/Scripts/python.exe -X utf8 ../my-brand-film/work/finish_video.py --project ../my-brand-film
+uv run --project ../my-brand-film/work python -X utf8 ../my-brand-film/work/render_video.py preview --project ../my-brand-film
+uv run --project ../my-brand-film/work python -X utf8 ../my-brand-film/work/render_video.py render --project ../my-brand-film
 ```
 
-Use the corresponding `venv/bin/python` path on other platforms and supply suitable
-fonts in `project.json`. Windows defaults use Microsoft JhengHei and Arial.
+Choose one audio route. For the included House arrangement:
+
+```powershell
+uv run --project ../my-brand-film/work python -X utf8 ../my-brand-film/work/compose_edm.py --project ../my-brand-film
+uv run --project ../my-brand-film/work python -X utf8 ../my-brand-film/work/finish_video.py --project ../my-brand-film
+```
+
+For a finished score from a separate music project, replace the paths with its actual outputs:
+
+```powershell
+uv run --project ../my-brand-film/work python -X utf8 ../my-brand-film/work/finish_video.py --project ../my-brand-film --audio ../music/outputs/score-master.wav --audio-metadata ../music/work/music-metadata.json
+```
+
+The imported track must match the requested film duration; only up to 40 ms of
+codec/resampling boundary trim or padding is allowed and recorded. Set `music.lufs`
+to the intended delivery target. Import does not normalize gain, and the encoded
+AAC must still pass final loudness, peak, mono and ending checks. Supply provenance
+with `original_composition` (boolean) or a `composition` description, including
+the actual source/license details. See the integration guide for free-time metadata.
+
+Supply suitable fonts in `project.json`. Windows defaults use Microsoft JhengHei and Arial.
 The included visual layout is 16:9; redesign the composition for a portrait film.
 
 The initializer also accepts `--duration`, `--bpm`, `--size`, `--fps`, and `--name`.
@@ -155,7 +189,8 @@ Finished files are written to the generated project's `outputs/` directory:
 | --- | --- |
 | `<slug>.mp4` | Full motion-graphics film with music and chapter metadata |
 | `<slug>-bgm.m4a` | Independent soundtrack |
-| `<slug>-music.mid` | Editable note and instrument tracks |
+| `<slug>-music.mid` | Editable note and instrument tracks from the internal composer |
+| `<slug>-soundtrack-source.json` | Imported audio provenance, hashes and conversion details, when using --audio |
 | `<slug>-storyboard.jpg` | Scene composition overview |
 | `<slug>-poster.jpg` | Film poster |
 | `<slug>-qc.json` | Measurements from the encoded final film |
@@ -168,7 +203,8 @@ the soundtrack.
 - [Skill instructions](SKILL.md)
 - [Project configuration](references/project-schema.md)
 - [Visual research and design](references/visual-production.md)
-- [EDM composition and mixing](references/edm-production.md)
+- [Electronic soundtracks and synchronization](references/electronic-soundtrack.md)
+- [Melodic House composition and mixing](references/edm-production.md)
 - [Local production pipeline](references/local-pipeline.md)
 
 ## Instrument sources and validation
@@ -188,9 +224,17 @@ and visual review remain necessary to assess musical and design quality.
 The [audio continuity guide](references/audio-continuity.md) covers MIDI gates versus
 release tails, shared-note ties, legato articulation and 10ms gap diagnostics.
 The standalone video starter now includes the repaired renderer and helpers.
-Pad ties and room are opt-in. New projects default to consonant triads
-with cross-part interval checks; intentional tension needs an explicit brief. The guide also covers harsh timbres,
+Pad ties and room are opt-in. The built-in House composer defaults to consonant triads
+with cross-part interval checks; intentional tension follows the brief. Other styles
+and free-time scores use appropriate harmony and texture rules. The guide also covers harsh timbres,
 primary/echo beat placement and verifying picture cues in the final MP4.
+
+The soundtrack regression suite exercises real AAC/MP4 muxing, unchanged picture
+packets and master gain, provenance retention, duration rejection and declared rests:
+
+```text
+uv run --project <generated-film>/work python -m unittest discover -s tests -v
+```
 
 ## License
 

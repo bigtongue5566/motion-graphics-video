@@ -10,10 +10,11 @@ init_project.py 會產生完整可讀的範例。主要欄位如下。
 | brand.primary / secondary / accent / ink | 十六進位品牌色與文字色 |
 | brand.logo / logo_on_dark | 官方 LOGO 本機路徑，可為 SVG 或 PNG；未提供時使用品牌名稱文字，不能當作已滿足指定 LOGO 的要求 |
 | fonts.cn / en | 可選字型檔路徑；未指定時使用支援的系統字型 |
-| music.bpm / transpose | BPM 與相對 G 大調的半音移調量；例如 -5 為 D 大調 |
+| music.bpm / transpose | 內建 House 作曲器的 BPM 與相對 G 大調的半音移調量；例如 -5 為 D 大調。匯入配樂不以此生成鼓點或改變播放速度 |
 | music.soundfont / fluidsynth | 可選取樣樂器與 FluidSynth 執行檔的本機路徑 |
 | music.soundfont_source / license | 對應音色庫的來源與授權路徑 |
 | music.lufs / true_peak | 可調母帶目標；預設 -16 LUFS、-2 dBTP |
+| music.intentional_silence | 可選的 [[start, end], ...] 秒數區間，供 QC 區分刻意留白，不會改變音訊 |
 | scenes | 時間連續的場景陣列，涵蓋 0 至 duration |
 
 每個場景包含 start、end、kind、scheme、chapter、headline、body、footnote、music_role。可選 metric、suffix、label、subline 與 visual_label。
@@ -24,6 +25,8 @@ music_role：intro、groove、build、drop、break、outro。
 
 每個場景應有足夠的閱讀時間。headline 可以換行；長句改成短行，或調整模板的文字大小。metric 必須來自本案資料；省略時顯示图形。百分比環圖還需 metric_value（0–100），不把 arbitrary 數字當成比例。
 
-music_role 直接與場景的時間區間共用，作為聲部密度與轉場的指引。和弦依 music.bpm 的小節時間變化；任意非整拍場景不會擅自改時間。音符與收尾會裁切到精确片長。
+music_role 是內建作曲器的場景角色，直接與場景時間區間共用；內建和弦依 music.bpm 的小節時間變化。任意非整拍場景不會擅自改時間；音符與收尾符合精確片長。這些角色不是所有電子音樂的段落限制。
+
+匯入配樂時不呼叫內建作曲器，來源可含 start/end/role 的 sections；自由時間配樂在來源 metadata 設 `pulse: free`，可不填 BPM／調性。project.json 的 music.bpm 正值保留供舊範本相容，不會套用到外部音訊。真正的音樂段落、變速、聲景及音畫 cue 由獨立音樂專案與本案 renderer 決定。匯入方法及來源格式見 [電子配樂與畫面同步](electronic-soundtrack.md)。
 
 範例內容只描述製作能力，沒有套用任何公司的年份、財務數據、優勢或商標。實際影片製作時換成本案來源可支持的敘事。

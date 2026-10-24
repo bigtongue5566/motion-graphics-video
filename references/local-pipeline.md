@@ -5,12 +5,11 @@
 使用 init_project.py 建立專案。它複製小型範本並產生 project.json，不覆寫已有檔案、不下載媒體、也不改使用者原本的影片。可以建立新專案或在現有專案中選擇新子資料夾。
 
 ```text
-python <skill>/scripts/init_project.py --project <project-directory>
-uv venv <project-directory>/work/.venv --python 3.12
-uv pip install --python <project-directory>/work/.venv/Scripts/python.exe -r <project-directory>/work/requirements.txt
+uv run --python 3.12 python <skill>/scripts/init_project.py --project <project-directory>
+uv sync --project <project-directory>/work
 ```
 
-以專案虛擬環境的 Python 執行下列腳本。其他平台使用對應的 venv/bin/python。依賴為 NumPy、SciPy、Pillow、Skia、Mido、imageio-ffmpeg。FFmpeg 由 imageio_ffmpeg.get_ffmpeg_exe() 尋找，無需假設已安裝系統版本。
+initializer 會將 pyproject.toml 複製到 work/；使用 `uv run --project <project-directory>/work python <script-path>` 執行。下列相對路徑範例從影片專案根目錄執行。依賴為 NumPy、SciPy、Pillow、Skia、Mido、imageio-ffmpeg。FFmpeg 由 imageio_ffmpeg.get_ffmpeg_exe() 尋找，無需假設已安裝系統版本。requirements.txt 保留供既有環境相容使用。
 
 受限環境若已有快取，可用 uv 的 offline 模式。快取目錄不能寫入時，指定專案的 work/uv-cache，避免改既有全域權限。
 
@@ -25,15 +24,32 @@ Windows 字型會尋找 Microsoft JhengHei 與 Arial。也可在 config.fonts �
 ## 操作
 
 ```text
-python work/render_video.py preview --project .
-python work/compose_edm.py --project .
-python work/render_video.py render --project .
-python work/finish_video.py --project .
+uv run --project work python work/render_video.py preview --project .
+uv run --project work python work/render_video.py render --project .
 ```
 
-preview 產生分鏡與封面。render 產生 work/picture.mp4，為完整動畫的影像軌。compose 產生 work/score-mix.wav、配樂 MIDI 與音樂來源／音符檢查。finish 對配樂做雙階段響度處理、輸出獨立 BGM、合成 MP4，最後直接解碼與檢查實際成品。
+preview 產生分鏡與封面。render 產生 work/picture.mp4，為完整動畫的影像軌。完成畫面後，按以下兩條配樂流程選一條。
 
-只重做配樂時，可沿用 work/picture.mp4。新的音樂時間表需仍與原始章節匹配。完成後用 finish 重新合成與驗證。
+## 配樂與合成
+
+內建 Melodic House 起點：
+
+```text
+uv run --project work python work/compose_edm.py --project .
+uv run --project work python work/finish_video.py --project .
+```
+
+compose 產生 work/score-mix.wav、配樂 MIDI 與音樂來源／音符檢查。finish 對這份 premix 做雙階段響度處理，輸出獨立 BGM、合成 MP4，最後直接解碼與檢查實際成品。這是內建範本的聲音方向，不是其他電子曲風的生成器。
+
+其他方向或已有完成配樂：依 [電子配樂與畫面同步](electronic-soundtrack.md) 用 `electronic-music-production` 或本案工具完成同片長的音樂專案，再匯入母帶與來源：
+
+```text
+uv run --project work python work/finish_video.py --project . --audio ../music/outputs/score-master.wav --audio-metadata ../music/work/music-metadata.json
+```
+
+路徑替換成本案實際檔名。這條流程略過作曲及 loudnorm，保留母帶增益；只做格式轉換、最多 40ms 的邊界調整與 AAC 編碼。片長不符先停止，不能用 `-shortest` 掩蓋。配置 music.lufs 為本案採用的響度目標；工具仍驗證最終 AAC 的響度與峰值。來源原始 JSON 與音檔雜湊會附在成品來源檔，不將授權音樂標為原創。外部音訊路徑相對於執行命令的目前目錄。
+
+只重做配樂時，可沿用 work/picture.mp4。新的音樂時間表需仍與原始章節及重要動作匹配。完成後用同一條 finish 流程重新合成與驗證；外部配樂仍需帶 --audio 與 --audio-metadata。
 
 成品名稱、片長與音樂速度都讀 project.json；避免將初版作品名稱、新聞年份或 90 秒寫死在腳本。數據與文案從本案 config 載入；圖形的實際內容需要依本案設計。畫面範本使用 16:9 構圖；需要直式影片時重設構圖與位置，保留 LOGO 比例。
 
@@ -49,7 +65,7 @@ uv run --python <venv-python> python <skill>/scripts/render_motion_study.py --ou
 
 此練習展示單一主體、弧線接力、遮罩、錯峰和收束，不是新的多風格 preset。依本案改寫構圖與動作；對外要求完整影片時仍須製作音樂及必要音效。
 
-finish 檢查影片時長／幀率／尺寸、完整解碼的影格數、48kHz 雙聲道音訊、真峰值、響度、意外靜音、末端淡出與單聲道相容性，並取各章節的實際影格到 work/qc/。可在維持使用者要求的前提下調整合理檢查界限。
+finish 檢查影片時長／幀率／尺寸、完整解碼的影格數、48kHz 雙聲道音訊、真峰值、響度、意外靜音、末端淡出與單聲道相容性，並取各章節的實際影格到 work/qc/。`music.intentional_silence` 可標記本案刻意留白；來源 metadata 的 `pulse: free` 會停用拍間空洞診斷。可在維持使用者要求的前提下調整合理檢查界限。
 
 分鏡與這些訊號檢查不代表已觀看完整影片或聽過音樂。提供實際成品，按可用能力檢查並如實記錄。
 

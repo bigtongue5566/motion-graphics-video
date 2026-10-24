@@ -1,4 +1,4 @@
-"""Create a self-contained motion/EDM project without overwriting files."""
+"""Create a self-contained motion-graphics project without overwriting files."""
 import argparse
 import json
 from pathlib import Path

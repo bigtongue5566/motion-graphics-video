@@ -1,11 +1,11 @@
 ---
 name: motion-graphics-video
-description: "Create and revise finished branded motion-graphics films with researched company facts, official logos and colors, original or licensed EDM background music, synchronized animation, and verified MP4 delivery. Use for company introductions, technology brand films, product explainers, 動態圖形影片, or requests to improve their EDM/BGM."
+description: "Create and revise finished motion-graphics films with researched facts, brand assets, synchronized animation and electronic soundtracks across dance, ambient, downtempo, experimental and hybrid styles. Use for brand films, product explainers, event timelines, 動態圖形影片, or revisions to their visuals, pacing, BGM and audio synchronization; deliver verified MP4 and playable music."
 ---
 
 # 動態圖形影片製作
 
-製作可播放的動態圖形影片，讓品牌敘事、圖形動作與 EDM 配樂共同推進。依使用者需求交付完整影片；只要求修改音樂時，沿用合適的既有畫面。
+製作可播放的動態圖形影片，讓敘事、圖形動作與電子配樂共同推進。依使用者需求交付完整影片；只要求修改音樂時，沿用合適的既有畫面。
 
 ## 先決定真正需要的成品
 
@@ -35,7 +35,9 @@ description: "Create and revise finished branded motion-graphics films with rese
 
 依題材與使用者偏好先決定配樂的鼓型、主導音色、低音、樂句與段落，再同步畫面。科技與企業影片可以採用多種電子音樂方向，不能每次都套用同一個四拍鼓／pluck 範本。連續製作時比較前次配樂，依本案實際改寫聲部；只換 BPM、調性與曲名不會建立不同的聲音身份。
 
-環境提供 electronic-music-production 時，使用該 Skill 的電子舞曲、Ambient、Downtempo、實驗／混合風格選擇與音源流程製作 BGM。先選與敘事相符的節奏或自由時間語法，不把所有配樂套成 EDM。它的曲風起點可在獨立音樂專案生成，之後按共用時間表與本片畫面合成；保留本片片長。這個影片套件自身附帶的作曲器仍是 Melodic House 起點，其他方向需要使用相應編曲器或改寫音色／律動。
+先閱讀 [電子配樂與畫面同步](references/electronic-soundtrack.md)，選擇節奏或自由時間語法。環境提供 `electronic-music-production` 時，使用其曲風、音色及編曲流程製作獨立 BGM，再用 `finish_video.py --audio ... --audio-metadata ...` 匯入完成母帶；保留本片精確片長與音樂來源，不重複正規化響度。這個影片套件附帶的 `compose_edm.py` 保留為 Melodic House 起點，相容既有專案；其他曲風需要相應編曲器或改寫音色／律動。
+
+有拍配樂核對實際重拍、切分及樂句；Ambient、Drone 等自由時間配樂以秒數、質地與張力變化對應動作，不能用 MIDI 參考 BPM 假造拍點。節奏加速可來自剪輯、細分、密度或真正變速，依本案選擇並重算 cue。片尾聲音終止、尾音與主要視覺動作一起設計。
 
 未指定且需要舒適的旋律型 BGM 時，可採協和、低張力的和聲：以大／小三和弦與平順聲部移動為起點；二度／半音、延伸和弦、三全音與懸留依使用者指定的風格、參考與張力意圖安排。無調性／聲景不硬套三和弦限制。檢查旋律、低音、長音與回聲的實際重疊，音符符合調性不等於同時發聲協和。
 
@@ -43,7 +45,7 @@ description: "Create and revise finished branded motion-graphics films with rese
 
 使用合適的樂器音色或清楚控制泛音的合成器。真實鋼琴可用相容的 SoundFont／取樣樂器演奏；不要把簡單振盪器描述成真實鋼琴。提供音樂、音色庫及素材來源；音符原創與音色取樣是不同層次的來源。
 
-音訊響度、峰值或音符檢查不能證明好聽。實際檢查開場、和弦銜接、完整節奏段、間奏與片尾；沒有可聽音訊的能力時，清楚區分已做的客觀檢查，提供可播放的配樂，不聲稱已試聽。使用者指出不和諧時，從和聲、旋律、尾音、聲部和音色查原因，再修改成品。詳細編曲與混音方法見 [references/edm-production.md](references/edm-production.md)。
+音訊響度、峰值或音符檢查不能證明好聽。依作品檢查開場、和聲／質地轉換、主要段落、留白與片尾；沒有可聽音訊的能力時，清楚區分已做的客觀檢查，提供可播放的配樂，不聲稱已試聽。使用者指出不和諧時，從和聲、旋律、尾音、聲部和音色查原因，再修改成品。旋律型／House 的編曲與混音方法見 [references/edm-production.md](references/edm-production.md)。
 
 使用者指出刺耳、拍點模糊或畫面不同步時，從被指出的秒數 solo 問題聲部，核對實際音源、音域、泛音、力度、主擊／回聲層級與重要動作 cue，並交付含畫面的短片段比較；保留使用者偏好的疏密。方法見 [references/audio-continuity.md](references/audio-continuity.md)。
 
@@ -56,14 +58,13 @@ description: "Create and revise finished branded motion-graphics films with rese
 沒有既有管線時，可用以下範本開始。先閱讀 [references/local-pipeline.md](references/local-pipeline.md) 與 [references/project-schema.md](references/project-schema.md)。
 
 ```text
-python <skill>/scripts/init_project.py --project <project-directory>
-python <project-directory>/work/render_video.py preview --project <project-directory>
-python <project-directory>/work/compose_edm.py --project <project-directory>
-python <project-directory>/work/render_video.py render --project <project-directory>
-python <project-directory>/work/finish_video.py --project <project-directory>
+uv run --python 3.12 python <skill>/scripts/init_project.py --project <project-directory>
+uv sync --project <project-directory>/work
+uv run --project <project-directory>/work python <project-directory>/work/render_video.py preview --project <project-directory>
+uv run --project <project-directory>/work python <project-directory>/work/render_video.py render --project <project-directory>
 ```
 
-修改 project.json 的品牌、場景、時間與音樂設定；補入本案的官方 LOGO、來源與內容。範本提供連續運動的向量場景、可變片長／速度／調性的原創 EDM、MIDI、音訊母帶、合成與驗證功能。依需求更換或擴充場景與編曲，避免把同一版配置當作所有公司的最終設計。
+修改 project.json 的品牌、場景、時間與音樂設定；補入本案的官方 LOGO、來源與內容。再依 [本機管線](references/local-pipeline.md#配樂與合成) 選擇內建 House 作曲／母帶，或匯入其他已完成配樂並合成。範本提供向量場景、音訊處理、合成與驗證；依需求更換構圖、動作與編曲，避免把同一配置當作所有影片的最終設計。
 
 ## 成品檢查與交付
 
