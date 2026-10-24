@@ -35,16 +35,16 @@ Attribution does not grant rights or guarantee against legal claims; see the
 [Explore this Skill on Skill Showcase](https://bigtongue5566.github.io/?skill=motion-graphics-video)
 
 An original 1080p motion study with procedural geometry and a synchronized
-Future Bass soundtrack. The shared [production example](https://github.com/bigtongue5566/edm-music-production/tree/main/examples/form-and-frequency)
-includes its render source, MIDI, media checks, and [sources and licenses](https://github.com/bigtongue5566/edm-music-production/blob/main/examples/form-and-frequency/RIGHTS.md).
+Future Bass soundtrack. The shared [production example](https://github.com/bigtongue5566/electronic-music-production/tree/main/examples/form-and-frequency)
+includes its render source, MIDI, media checks, and [sources and licenses](https://github.com/bigtongue5566/electronic-music-production/blob/main/examples/form-and-frequency/RIGHTS.md).
 
 
 ## More original Demos
 
 | Work | Music | Film | Standalone soundtrack | Reproducible source |
 | --- | --- | --- | --- | --- |
-| Digital Pulse / 數位脈動 | 60 sec · 172 BPM · Drum & Bass | [Watch](https://bigtongue5566.github.io/?demo=digital-pulse) | [Listen](https://bigtongue5566.github.io/?demo=digital-pulse-music) | [Project](https://github.com/bigtongue5566/edm-music-production/tree/main/examples/digital-pulse) |
-| Neon Drift / 霓虹漫遊 | 60 sec · 132 BPM · UK Garage | [Watch](https://bigtongue5566.github.io/?demo=neon-drift) | [Listen](https://bigtongue5566.github.io/?demo=neon-drift-music) | [Project](https://github.com/bigtongue5566/edm-music-production/tree/main/examples/neon-drift) |
+| Digital Pulse / 數位脈動 | 60 sec · 172 BPM · Drum & Bass | [Watch](https://bigtongue5566.github.io/?demo=digital-pulse) | [Listen](https://bigtongue5566.github.io/?demo=digital-pulse-music) | [Project](https://github.com/bigtongue5566/electronic-music-production/tree/main/examples/digital-pulse) |
+| Neon Drift / 霓虹漫遊 | 60 sec · 132 BPM · UK Garage | [Watch](https://bigtongue5566.github.io/?demo=neon-drift) | [Listen](https://bigtongue5566.github.io/?demo=neon-drift-music) | [Project](https://github.com/bigtongue5566/electronic-music-production/tree/main/examples/neon-drift) |
 
 Each work has a new musical arrangement and original procedural visuals,
 documented sources, MIDI, editable code, and checks of the finished media.
